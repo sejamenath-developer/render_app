@@ -12,9 +12,10 @@ function sendMessage() {
         contentType: false,
         processData: false,
         success: function(data) {
-            result.innerHTML = '<img src="static/icons/tmp-camera-1703274705850.png" alt="Image Preview" class="result-image" style="width:40px"><br>' + data.data;
+            var sinhalaText = new Intl.DisplayNames(['si'], { type: 'language' }).of(data.data);
+            result.innerHTML = '<img src="static/icons/tmp-camera-1703274705850.png" alt="Image Preview" class="result-image" style="width:40px"><br>' + sinhalaText;
             showSuccessMessage();
-            
+
             // Clear the placeholder text after sending the message
             $('#textInput').val('');
         },
