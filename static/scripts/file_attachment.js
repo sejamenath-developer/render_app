@@ -1,7 +1,7 @@
 function fileUpload() {
     var fileInput = document.getElementById('fileInput');
     var result = document.getElementById('results');
-    var loadingText = document.getElementById('loadingText'); // Add an element for loading text
+    var loadingText = document.getElementById('loadingText');
 
     fileInput.addEventListener('change', function() {
         var file = fileInput.files[0];
@@ -10,7 +10,7 @@ function fileUpload() {
             formData.append('file', file);
 
             // Display loading text while uploading
-            loadingText.innerText = 'Uploading...';
+            loadingText.classList.remove('hide'); // Show the loading text
 
             $.ajax({
                 url: '/upload',
@@ -22,15 +22,15 @@ function fileUpload() {
                     console.log(data);
                     showSuccessMessage();
                     setTimeout(function() {
-                        loadingText.innerText = ''; // Remove loading text after 3 seconds on success
-                    }, 3000);
+                        loadingText.classList.add('hide'); // Hide the loading text after 4 seconds
+                    }, 4000);
                 },
                 error: function(error) {
                     console.error('Error:', error);
                     showErrorMessage();
                     setTimeout(function() {
-                        loadingText.innerText = ''; // Remove loading text after 3 seconds on error
-                    }, 3000);
+                        loadingText.classList.add('hide'); // Hide the loading text after 4 seconds
+                    }, 4000);
                 }
             });
         }
