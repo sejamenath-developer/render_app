@@ -43,6 +43,19 @@
 
                <h2>YOUR IMAGE</h2>
                 <img id="imagePreview" src="#" alt="" style="width:250px;padding:10px;border-radius:20px;">
+
+
+
+
+<center ><div id="loading" style="display: none;">GENERATING...</div></center>
+
+
+
+
+
+
+
+
             </div>
 
             <div style="display:inline-block;">
@@ -103,6 +116,50 @@ speechBtn.addEventListener('click', function () {
 });
 
 
+// Get the form element
+const form = document.querySelector('form');
+
+// Get the loading message element
+const loading = document.getElementById('loading');
+
+// Add an event listener to the form for submission
+form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Show the loading message
+    loading.style.display = 'block';
+
+    // Get the user message and file
+    const formData = new FormData(form);
+    const userMessage = formData.get('message');
+    const file = formData.get('file');
+
+    // Create a new FormData object
+    const data = new FormData();
+    data.append('message', userMessage);
+    data.append('file', file);
+
+    try {
+        // Send a POST request to the server
+        const response = await fetch('/submit', {
+            method: 'POST',
+            body: data
+        });
+
+        // Get the JSON response from the server
+        const jsonResponse = await response.json();
+        
+        // Handle the response here (e.g., display the generated content)
+
+        // Hide the loading message after receiving the response
+        loading.style.display = 'none';
+    } catch (error) {
+        console.error('Error:', error);
+        // Handle errors if any
+        // Hide the loading message on error
+        loading.style.display = 'none';
+    }
+});
 
 </script>
 
