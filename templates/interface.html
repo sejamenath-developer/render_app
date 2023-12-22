@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GenAi-Gemini</title>
+    <title>NURO AI</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/Google-Gemini-AI-Icon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/head.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/body.css') }}">
@@ -21,14 +21,14 @@
 </head>
 <body>
     <div class="head">
-        <h1><img src="{{ url_for('static', filename='icons/Chatbot.png') }}" alt="icon" style="width:50px; padding:0; margin: 0px 0px -10px 0px;"> NURO-AI</h1>
+        <h1><img src="{{ url_for('static', filename='#') }}" alt="icon" style="width:50px; padding:0; margin: 0px 0px -10px 0px;">NURO AI</h1>
     </div>
     <div class="form_style">
         <div class="inside_form">
             <!-- Image preview container -->
             <div id="imagePreviewContainer" style="display: none; text-align: center; padding:10px">
                 <h1 style="font-size: 20px; font-weight: 800; padding:10px"><u>Image Preview</u></h1>
-                <img id="imagePreview" src="#" alt="Image Preview" style="width:100px; padding:10px;">
+                <img id="imagePreview" src="#" alt="Image Preview" style="width:100px; padding:10px;border-radius:20px;">
             </div>
 
             <div style="display:inline-block;">
@@ -45,7 +45,7 @@
                 </label>
                 <input type="file" id="fileInput" style="display: none" accept=".png, .jpg, .jpeg" onchange="previewImage(this)" name="file">
 
-                <input type="text" placeholder="ask me....???" id="textInput">
+                <input type="text" placeholder="Enter your prompt here..." id="textInput">
                 <button onclick="sendMessage()"><img src="{{ url_for('static', filename='icons/paper_rocket.png') }}" alt="send_icon" class="paper-rocket-icon"></button>
             </div>
         </div>
