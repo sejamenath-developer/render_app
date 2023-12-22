@@ -25,7 +25,9 @@
 .paper-clip-icon{
     width: 25px; 
     height: 25px; 
-    margin-right: 5px;
+    border-radius:100px;
+    box-shadow: 0 0 10px black ;
+    margin-right: 12px;
 }
 .paper-rocket-icon{
     margin-top: 2px;
