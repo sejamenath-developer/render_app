@@ -21,12 +21,16 @@ function fileUpload() {
                 success: function(data) {
                     console.log(data);
                     showSuccessMessage();
-                    loadingText.innerText = ''; // Remove loading text on success
+                    setTimeout(function() {
+                        loadingText.innerText = ''; // Remove loading text after 3 seconds on success
+                    }, 3000);
                 },
                 error: function(error) {
                     console.error('Error:', error);
                     showErrorMessage();
-                    loadingText.innerText = ''; // Remove loading text on error
+                    setTimeout(function() {
+                        loadingText.innerText = ''; // Remove loading text after 3 seconds on error
+                    }, 3000);
                 }
             });
         }
