@@ -54,3 +54,13 @@
     margin-right:9px;
     
 }
+/* Initial state of the loading text */
+#loadingText {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Class to hide the loading text */
+.hide {
+    opacity: 0;
+}
