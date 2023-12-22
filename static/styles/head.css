@@ -1,0 +1,16 @@
+.head {
+    /* Styles for the header */
+    position: fixed;
+    top: 0; /* Set to the top of the viewport */
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    font-family: Fantasy;
+    z-index: 1000; /* Set a z-index to ensure it appears above other elements */
+}
+h1{
+    padding:0;
+    margin: 0;
+}

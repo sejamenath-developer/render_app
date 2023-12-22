@@ -1,0 +1,52 @@
+.floating-input {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f0f0f0; 
+    padding: 15px; 
+    border: 2px solid #6dc9f6;
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    display: flex;
+    align-items: center;
+    width: 80vw; 
+    max-width: 700px; 
+    margin: 0 auto; 
+}
+
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.paper-clip-icon{
+    width: 25px; 
+    height: 25px; 
+    margin-right: 5px;
+}
+.paper-rocket-icon{
+    margin-top: 2px;
+    
+    width: 20px; 
+    height: 20px; 
+}
+
+.floating-input input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.floating-input button {
+    background-color: #fa759e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}

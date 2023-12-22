@@ -1,0 +1,22 @@
+
+
+.form_style {
+    /* Styles for the form */
+    margin: auto;
+    text-align: left;
+    margin-top: 20px;    
+    width: 85vw;
+    max-width: 800px;
+    
+}
+.inside_form{
+    width: 100%;
+    margin-top: 140px;
+    background-color: #cbe3ff;
+    height: 1000px;
+    margin-bottom: 100px;
+
+}
+.form_style form {
+    display: inline-block;
+}
