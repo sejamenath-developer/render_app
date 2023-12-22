@@ -31,7 +31,7 @@
 
 
 
-<button id="startRecording"><i class="fa fa-microphone"></i>
+<button id="sound"><i class="fa fa-microphone"></i>
             </button>
   
     
@@ -87,8 +87,8 @@ function sendMessage() {
 
 
 
-const speechBtn = document.getElementById('speak-btn');
-const userPrompt = document.getElementById('user-prompt');
+const speechBtn = document.getElementById('sound');
+const userPrompt = document.getElementById('textInput');
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
