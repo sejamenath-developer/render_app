@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, jsonify
 from pathlib import Path
-from google.cloud import translate
 import google.generativeai as genai
 import mimetypes
 import os
@@ -10,7 +9,7 @@ file_path = ''
 app = Flask(__name__)
 
 # Configure Google Generative AI
-genai.configure(api_key="AIzaSyAgYD9komBIepaqDvKT3FJSVbynsc9WVkg")  # Replace with your actual API key
+genai.configure(api_key="AIzaSyAgYD9komBIepaqDvKT3FJSVbynsc9WVkg")
 
 # Set up the model
 generation_config = {
@@ -43,9 +42,6 @@ model = genai.GenerativeModel(model_name="gemini-pro-vision",
                               generation_config=generation_config,
                               safety_settings=safety_settings)
 
-# Set up Google Cloud Translation client
-translate_client = translate.TranslationServiceClient()
-
 @app.route('/')
 def index():
     return render_template('interface.html')
@@ -72,11 +68,7 @@ def submit():
     user_message = request.form.get('message')
     print('Received message from frontend:', user_message)
 
-    # Translate the user message to the language you desire (e.g., 'si' for Sinhala)
-    translated_message = translate_text(user_message, 'si')
-    print('Translated message:', translated_message)
-
-    if not Path(file_path).exists():
+    if not file_path.exists():
         return jsonify({"error": "Could not find the uploaded image"})
 
     mime_type, _ = mimetypes.guess_type(file_path)
@@ -84,12 +76,12 @@ def submit():
     image_parts = [
         {
             "mime_type": mime_type,
-            "data": Path(file_path).read_bytes()
+            "data": file_path.read_bytes()
         },
     ]
 
     prompt_parts = [
-        translated_message,
+        user_message,
         image_parts[0],
         "",
     ]
@@ -103,16 +95,6 @@ def submit():
         os.remove(file_path)
 
     return jsonify(data=response.text)
-
-def translate_text(text, target_language):
-    parent = "projects/your-project-id/locations/global"  # Replace with your actual GCP project ID
-    response = translate_client.translate_text(
-        contents=[text],
-        target_language_code=target_language,
-        parent=parent
-    )
-    translated_text = response.translations[0].translated_text
-    return translated_text
 
 if __name__ == '__main__':
     app.run()
