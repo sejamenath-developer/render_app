@@ -26,12 +26,12 @@
     width: 25px; 
     height: 25px; 
     border-radius:100px;
-    box-shadow: 0 0 10px black ;
-    margin-right: 12px;
+   
+    margin-right:5px;
 }
 .paper-rocket-icon{
     margin-top: 2px;
-    margin-right:5px;
+    margin-right:10px;
     width: 20px; 
     height: 20px; 
 }
