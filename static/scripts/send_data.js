@@ -23,3 +23,14 @@ function sendMessage() {
         }
     });
 }
+
+function sendMessage() {
+  var input = document.getElementById('textInput');
+  input.value = input.value.trim(); // Trim any leading/trailing spaces
+  input.placeholder = ''; // Remove the placeholder text
+  
+  // Add your code to send the message here
+
+  // Clear the input field after sending
+  input.value = ''; // Set the input value to an empty string
+}
