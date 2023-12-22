@@ -49,6 +49,7 @@
     color: black;
     border: none;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 95px;
     cursor: pointer;
+    margin-right:5px;
 }
