@@ -54,5 +54,19 @@
 </html>
 <script>
 
+function sendMessage() {
+  const messageInput = document.getElementById('messageInput');
+  const message = messageInput.value.trim();
+
+  if (message !== '') {
+    const messagesContainer = document.querySelector('.messages');
+    const newMessage = document.createElement('div');
+    newMessage.textContent = message;
+    newMessage.classList.add('message');
+    messagesContainer.appendChild(newMessage);
+    messageInput.value = '';
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+}
 
 </script>
