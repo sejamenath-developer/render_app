@@ -3,6 +3,8 @@ from pathlib import Path
 import google.generativeai as genai
 import mimetypes
 import os
+from gtts import gTTS
+import playsound
 
 file_path = ''
 
@@ -90,9 +92,18 @@ def submit():
 
     print(response.text)
 
-    # Remove uploaded file
+    # Generate speech from the response
+    tts = gTTS(text=response.text, lang='en')
+    tts.save('generated_speech.mp3')  # Save the generated speech as an audio file
+
+    # Play the generated speech
+    playsound.playsound('generated_speech.mp3', True)
+
+    # Remove uploaded file and generated speech file
     if os.path.exists(file_path):
         os.remove(file_path)
+    if os.path.exists('generated_speech.mp3'):
+        os.remove('generated_speech.mp3')
 
     return jsonify(data=response.text)
 
