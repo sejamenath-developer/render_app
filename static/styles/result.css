@@ -1,12 +1,12 @@
 .result {
     font-size: .8em;
     padding: 10px;
-    width: 7.3em;
+    width: 50em;
     opacity: 0;
-  -webkit-animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
-  animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
-  -webkit-animation-delay: 4s;
-  animation-delay: 4s;
+  -webkit-animation: type3 15s steps(20, end), blink .5s step-end infinite alternate;
+  animation: type3 15s steps(20, end), blink .15s step-end infinite alternate;
+  -webkit-animation-delay: 14s;
+  animation-delay: 14s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
