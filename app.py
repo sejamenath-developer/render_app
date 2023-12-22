@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 from pathlib import Path
-import google.generativeai as genai
-import mimetypes
-import os
 from gtts import gTTS
+import os
+import mimetypes
+import google.generativeai as genai
 import playsound
 
 file_path = ''
@@ -99,7 +99,7 @@ def submit():
     # Play the generated speech
     playsound.playsound('generated_speech.mp3', True)
 
-    # Remove uploaded file and generated speech file
+    # Remove uploaded file and the generated speech file
     if os.path.exists(file_path):
         os.remove(file_path)
     if os.path.exists('generated_speech.mp3'):
