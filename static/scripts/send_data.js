@@ -12,7 +12,7 @@ function sendMessage() {
         contentType: false,
         processData: false,
         success: function(data) {
-            result.innerHTML = '<img src="static/icons/tmp-camera-1703274705850.jpg" alt="Image Preview" class="result-image" style="width:40px"><p><b>Generated text<b></p>' + data.data;
+            result.innerHTML = '<img src="static/icons/0ad3f9b49bc8456a4a2a1a51fdf0ca4e.gif" alt="Image Preview" class="result-image" style="width:40px"><p><b>Generated text<b></p>' + data.data;
             showSuccessMessage();
             
             // Clear the placeholder text after sending the message
