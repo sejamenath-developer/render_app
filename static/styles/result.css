@@ -9,12 +9,13 @@
 
 /* Progress bar styling */
 .progress-bar {
-    width: 0%;
-    height: 5px;
+    width: 100px;
+    height: 10px;
     background-color: black; /* Green color */
     display: none; /* Initially hidden */
     margin:10px;
-   margin-top:10px;
+    padding:10px;
+    margin-top:10px;
     border-radius:30px;
     transition: width 0.1s ease-in-out; /* Smooth width change */
 }
