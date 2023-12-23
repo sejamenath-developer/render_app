@@ -7,9 +7,11 @@ body {
 
 .btn{
 
-padding:10px 30px;
-background-color:black;
-color:white;
-
-margin-left:40px;
+background-color: black; /* Blue color */
+    color:White; /* White text */
+/* White text */
+border: none;
+padding: 20px 30px;
+border-radius: 40px;
+cursor: pointer;
 }
