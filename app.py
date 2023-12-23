@@ -1,17 +1,14 @@
-
- 
 from flask import Flask, render_template, request, jsonify
 from pathlib import Path
 import google.generativeai as genai
-import mimetypes
-import os
+import mimetypes  # Import the mimetypes module
 
 file_path = ''
 
 app = Flask(__name__)
 
 # Configure Google Generative AI
-genai.configure(api_key="AIzaSyAgYD9komBIepaqDvKT3FJSVbynsc9WVkg")
+genai.configure(api_key="AIzaSyAZZImzWodLf_m8J-EVJLG_nWjBoSyBI6k")
 
 # Set up the model
 generation_config = {
@@ -52,12 +49,13 @@ def index():
 def upload():
     if 'file' not in request.files:
         return jsonify({"error": "No file part"})
-    
+
     file = request.files['file']
 
     if file.filename == '':
         return jsonify({"error": "No selected file"})
 
+    # Save the uploaded file
     upload_folder = Path("uploads")
     upload_folder.mkdir(exist_ok=True)
     global file_path
@@ -73,8 +71,9 @@ def submit():
     if not file_path.exists():
         return jsonify({"error": "Could not find the uploaded image"})
 
+    # Determine the MIME type using the mimetypes module
     mime_type, _ = mimetypes.guess_type(file_path)
-    
+
     image_parts = [
         {
             "mime_type": mime_type,
@@ -91,11 +90,6 @@ def submit():
     response = model.generate_content(prompt_parts)
 
     print(response.text)
-
-    # Remove uploaded file
-    if os.path.exists(file_path):
-        os.remove(file_path)
-
     return jsonify(data=response.text)
 
 if __name__ == '__main__':
