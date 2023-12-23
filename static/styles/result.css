@@ -13,10 +13,19 @@
     height: 10px;
     background-color: black; /* Green color */
     display: none; /* Initially hidden */
-    margin:10px;
     padding:10px;
     margin-top:10px;
     border-radius:30px;
     transition: width 0.1s ease-in-out; /* Smooth width change */
 }
 
+
+.imgpre
+{
+
+
+padding:50px;
+background-color:transparent;
+box-shadow:
+
+}
