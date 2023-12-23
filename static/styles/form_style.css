@@ -10,28 +10,11 @@
 }
 .inside_form{
     width: 100%;
-    margin-top: 14px;
     background-color:transparent;
     height:auto;
-    margin-bottom: 100px;
 
 }
 .form_style form {
     display: inline-block;
 }
 
-
-#sound{
-   padding:60px:
-
-   color:white;
-   margin-left:10px;
-   font-size:35px;
-   align-items: center;
-   margin-top:30px;
-   border-radius:100px;
-   padding:5px;
-
-}
-i{
-  background-color:black;}
