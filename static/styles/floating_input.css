@@ -20,6 +20,15 @@
     align-items: center;
     margin-right: 10px;
     background-color:white;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Class to hide the loading text */
+.hide {
+    opacity: 0;
+}
+
 }
 
 .paper-clip-icon{
