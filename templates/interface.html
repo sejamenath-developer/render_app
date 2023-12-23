@@ -25,8 +25,12 @@
     <script src="{{ url_for('static', filename='scripts/send_data.js') }}" defer></script>
 </head>
 <body>
-   
 
+
+
+
+   
+<center><H1 id="asyncExec"></H1></center>
 
 
 <div id="sound"><i class="fa fa-microphone"></i>
@@ -158,6 +162,31 @@ form.addEventListener('submit', async (e) => {
         loading.style.display = 'none';
     }
 });
+
+
+
+
+
+
+
+new TypeIt("#asyncExec", {
+  waitUntilVisible: true,
+})
+  .type("Hello, Welcome to")
+  .exec(async () => {
+    //-- Return a promise that resolves after something happens.
+    await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        return resolve();
+      }, 2000);
+    });
+  })
+  .type("S/AI { S SLASH AI }")
+  .go();
+
+
+
+
 
 </script>
 <style>
