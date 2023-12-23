@@ -18,7 +18,7 @@ function sendMessage() {
             var endTime = performance.now(); // Record end time
             var processingTime = endTime - startTime; // Calculate processing time
 
-            result.innerHTML = '<img src="" alt="Image Preview" class="result-image" style="width:40px"><p><b>Generated text<b></p>' + data.data;
+            result.innerHTML = '<p><b>Generated text<b></p>' + data.data;
             
             // Display processing time
             processingTimeElement.textContent = 'Processing Time: ' + processingTime.toFixed(2) + ' ms';
