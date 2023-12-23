@@ -1,31 +1,26 @@
-// Simulating a process with start and end times
-function simulateProcess() {
-  var startTime = performance.now(); // Record start time
-  // Simulate some process (e.g., fetching data, calculations)
-  for (var i = 0; i < 100000; i++) {
-    // Perform some task
-  }
-  var endTime = performance.now(); // Record end time
+function sendMessage() {
+    var userInput = $('#textInput').val();
+    var result = document.getElementById('results');
+    var formData = new FormData();
 
-  var progressBar = document.createElement('div');
-  progressBar.style.width = '0%';
-  progressBar.style.height = '20px';
-  progressBar.style.backgroundColor = '#4caf50';
-  progressBar.style.transition = 'width 0.3s ease-in-out';
+    formData.append('message', userInput);
 
-  var progressBarContainer = document.createElement('div');
-  progressBarContainer.style.width = '100%';
-  progressBarContainer.style.backgroundColor = '#ddd';
-  progressBarContainer.appendChild(progressBar);
-
-  document.body.appendChild(progressBarContainer);
-
-  var processingTime = endTime - startTime;
-
-  // Update progress bar width based on processing time
-  var progressBarWidth = (processingTime / 1000) * 100; // Assuming a max processing time of 1000ms
-  progressBar.style.width = progressBarWidth + '%';
+    $.ajax({
+        url: '/submit',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+            result.innerHTML = '<img src="static/icons/Chatbot.png" alt="Image Preview" class="result-image" style="width:40px"><br>' + data.data;
+            showSuccessMessage();
+            
+            // Clear the placeholder text after sending the message
+            $('#textInput').val('');
+        },
+        error: function(error) {
+            console.error('Error:', error);
+            // Handle error
+        }
+    });
 }
-
-// Call the function to simulate a process
-simulateProcess();
