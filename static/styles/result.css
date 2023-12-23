@@ -7,10 +7,12 @@
 }
   
 
-/* Add your existing styles here */
-
-#processingTime {
-    margin-top: 10px;
-    font-size:11px;
-    
+/* Progress bar styling */
+.progress-bar {
+    width: 0%;
+    height: 5px;
+    background-color: #4CAF50; /* Green color */
+    display: none; /* Initially hidden */
+    transition: width 0.3s ease-in-out; /* Smooth width change */
 }
+
