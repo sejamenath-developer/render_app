@@ -12,10 +12,17 @@ genai.configure(api_key="AIzaSyAZZImzWodLf_m8J-EVJLG_nWjBoSyBI6k")
 
 # Set up the model
 generation_config = {
+    
     "temperature": 0.4,
     "top_p": 1,
     "top_k": 32,
-    "max_output_tokens": 4096,
+    "max_output_tokens": 9000,
+    "repetition_penalty": 1.2,
+    "length_penalty": 2,
+    "num_return_sequences": 1,
+    "stop_sequence": ["<EOS>"]
+}
+
 }
 
 safety_settings = [
