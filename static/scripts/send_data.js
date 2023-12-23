@@ -12,7 +12,7 @@ function sendMessage() {
         contentType: false,
         processData: false,
         success: function(data) {
-            result.innerHTML = '<h3>• Generated Resalt </h3><br>' + data.data;
+            result.innerHTML = '<h3>® Description generated</h3><br>' + data.data;
             showSuccessMessage();
             
             // Clear the placeholder text after sending the message
