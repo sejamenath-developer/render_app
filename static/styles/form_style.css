@@ -22,8 +22,10 @@
 
 
 #sound{
-padding:60px:
-background-color:black;
-color:black;
-margin-left:10px;
-font-size:25px;
+   padding:60px:
+   background-color:black;
+   color:white;
+   margin-left:10px;
+   font-size:45px;
+   align-items: center;
+}
