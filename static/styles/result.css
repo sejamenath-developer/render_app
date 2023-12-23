@@ -11,13 +11,16 @@
 .progress-container {
   width: 100%;
   background-color: #f1f1f1;
+  border-radius:30px;
+
 }
 
 .progress-bar {
   width: 0;
-  height: 30px;
+  height: 10px;
   background-color: black;
   text-align: center;
-  line-height: 30px;
+  line-height: 10px;
   color: white;
+  border-radius:30px;
 }
