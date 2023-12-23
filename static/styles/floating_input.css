@@ -1,6 +1,6 @@
 .floating-input {
     position: fixed;
-    bottom: 10px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     background-color:white; 
