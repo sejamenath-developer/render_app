@@ -1,54 +1,59 @@
-function sendMessage() {
-    var userInput = $('#textInput').val();
-    var result = document.getElementById('results');
-    var formData = new FormData();
-    var progressBar = document.getElementById('progressBar');
-    var progressBarValue = 0;
+src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function sendMessage() {
+            var userInput = $('#textInput').val();
+            var result = document.getElementById('results');
+            var processingTimeElement = document.getElementById('processingTime');
+            var progressBar = document.getElementById('progressBarInner');
+            var formData = new FormData();
 
-    formData.append('message', userInput);
+            formData.append('message', userInput);
 
-    // Show the progress bar
-    progressBar.style.display = 'block';
+            var startTime = performance.now(); // Record start time
 
-    // Interval to update the progress bar
-    var interval = setInterval(function() {
-        progressBarValue += 2; // Adjust the increment value as needed
-        progressBar.style.width = progressBarValue + '%';
+            $.ajax({
+                url: '/submit',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                xhr: function () {
+                    var xhr = new window.XMLHttpRequest();
 
-        if (progressBarValue >= 100) {
-            clearInterval(interval);
+                    // Upload progress
+                    xhr.upload.addEventListener("progress", function (evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = (evt.loaded / evt.total) * 100;
+                            progressBar.style.width = percentComplete + '%';
+                        }
+                    }, false);
+
+                    return xhr;
+                },
+                beforeSend: function () {
+                    // Show the progress bar before sending the request
+                    progressBar.style.width = '0%';
+                    progressBar.parentNode.style.display = 'block';
+                },
+                success: function (data) {
+                    var endTime = performance.now(); // Record end time
+                    var processingTime = endTime - startTime; // Calculate processing time
+
+                    result.innerHTML = '<p><b>Generated text<b></p>' + data.data;
+
+                    // Display processing time
+                    processingTimeElement.textContent = 'Processing Time: ' + processingTime.toFixed(2) + ' s';
+
+                    // Clear the placeholder text after sending the message
+                    $('#textInput').val('');
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                    // Handle error
+                },
+                complete: function () {
+                    // Hide the progress bar when the request is complete
+                    progressBar.parentNode.style.display = 'none';
+                }
+            });
         }
-    }, 100); // Adjust the interval duration as needed
-
-    // Simulate a delay (replace this with your actual AJAX request)
-    setTimeout(function() {
-        // This simulates a successful response after a delay
-        result.innerHTML = '<br>Generated Resalt  •<br>';
-        showSuccessMessage();
-
-        // Clear the placeholder text after sending the message
-        $('#textInput').val('');
-
-        // Hide the progress bar after receiving the response
-        progressBar.style.display = 'none';
-        progressBar.style.width = '0%'; // Reset progress bar width
-    }, 3000); // Simulated response delay (replace this with your actual AJAX request)
-
-    // This is where you would put your actual AJAX request using $.ajax
-    // Example:
-    /*
-    $.ajax({
-        url: '/submit',
-        type: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(data) {
-            // Handle the response data
-        },
-        error: function(error) {
-            // Handle error
-        }
-    });
-    */
-}
