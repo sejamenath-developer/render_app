@@ -34,10 +34,7 @@ function move() {
   }
 }
 
-// Showing a notification
-function showNotification() {
-  alert("Progress Complete!");
-}
+
 
 // Triggering the progress bar animation
 move();
