@@ -40,7 +40,13 @@ function sendMessage() {
         },
         success: function(data) {
             // Handle the response data
-            result.innerHTML = '<img src="static/icons/Chatbot.png" alt="Image Preview" class="result-image" style="width:40px"><br>' + data.data;
+            result.innerHTML = 'class="result-image" style="width:40px"><h3>   <b>  
+
+Generated Resalt <br>
+•••••••••••••••••••••••
+</b>
+
+</h3><br>' + data.data;
             showSuccessMessage();
 
             // Clear the placeholder text after sending the message
