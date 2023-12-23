@@ -17,6 +17,11 @@ function sendMessage() {
             
             // Clear the placeholder text after sending the message
             $('#textInput').val('');
+
+            // Additional logic for handling the Python code response if needed
+            // You can access the Python response in the 'data' variable
+            // Example: console.log('Python Response:', data);
+
         },
         error: function(error) {
             console.error('Error:', error);
