@@ -20,7 +20,7 @@ generation_config = {
     "repetition_penalty": 1.2,
     "length_penalty": 2,
     "num_return_sequences": 1,
-    "stop_sequence": ["<EOS>"]
+   
 }
 
 }
