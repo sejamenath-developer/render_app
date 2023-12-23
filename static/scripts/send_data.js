@@ -10,40 +10,49 @@ function sendMessage() {
     // Show the progress bar
     progressBar.style.display = 'block';
 
-    // Interval to update the progress bar
-    var interval = setInterval(function() {
-        progressBarValue += 1; // Adjust the increment value as needed
-        progressBar.style.width = progressBarValue + '%';
-
-        if (progressBarValue >= 100) {
-            clearInterval(interval);
-        }
-    }, 50); // Adjust the interval duration as needed
-
-    // Simulate an AJAX request delay and response time
+    // This is just an example. Replace this with your actual AJAX request
     $.ajax({
         url: '/submit',
         type: 'POST',
         data: formData,
         contentType: false,
         processData: false,
+        beforeSend: function() {
+            // Set the expected response time (adjust as needed)
+            var expectedResponseTime = 5000; // in milliseconds
+
+            // Calculate the interval duration based on the expected response time
+            var intervalDuration = expectedResponseTime / 100;
+
+            // Interval to update the progress bar
+            var interval = setInterval(function() {
+                progressBarValue += 1; // Adjust the increment value as needed
+                progressBar.style.width = progressBarValue + '%';
+
+                if (progressBarValue >= 100) {
+                    clearInterval(interval);
+
+                    // Hide the progress bar after receiving the response
+                    progressBar.style.display = 'none';
+                    progressBar.style.width = '0%'; // Reset progress bar width
+                }
+            }, intervalDuration);
+        },
         success: function(data) {
-            // Simulate a delay before showing the response
-            setTimeout(function() {
-                result.innerHTML = '<img src="static/icons/Chatbot.png" alt="Image Preview" class="result-image" style="width:40px"><br>Received response!';
-                showSuccessMessage();
+            // Handle the response data
+            result.innerHTML = '<img src="static/icons/Chatbot.png" alt="Image Preview" class="result-image" style="width:40px"><br>' + data.data;
+            showSuccessMessage();
 
-                // Clear the placeholder text after sending the message
-                $('#textInput').val('');
-
-                // Hide the progress bar after receiving the response
-                progressBar.style.display = 'none';
-                progressBar.style.width = '0%'; // Reset progress bar width
-            }, 1500); // Simulated response delay (adjust this to match your backend response time)
+            // Clear the placeholder text after sending the message
+            $('#textInput').val('');
         },
         error: function(error) {
-            console.error('Error:', error);
             // Handle error
+            console.error('Error:', error);
+
+            // Hide the progress bar on error
+            progressBar.style.display = 'none';
+            progressBar.style.width = '0%'; // Reset progress bar width
         }
     });
 }
