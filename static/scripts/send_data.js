@@ -1,34 +1,31 @@
-function sendMessage() {
-    var userInput = $('#textInput').val();
-    var result = document.getElementById('results');
-    var processingTimeElement = document.getElementById('processingTime');
-    var formData = new FormData();
+// Simulating a process with start and end times
+function simulateProcess() {
+  var startTime = performance.now(); // Record start time
+  // Simulate some process (e.g., fetching data, calculations)
+  for (var i = 0; i < 100000; i++) {
+    // Perform some task
+  }
+  var endTime = performance.now(); // Record end time
 
-    formData.append('message', userInput);
+  var progressBar = document.createElement('div');
+  progressBar.style.width = '0%';
+  progressBar.style.height = '20px';
+  progressBar.style.backgroundColor = '#4caf50';
+  progressBar.style.transition = 'width 0.3s ease-in-out';
 
-    var startTime = performance.now(); // Record start time
+  var progressBarContainer = document.createElement('div');
+  progressBarContainer.style.width = '100%';
+  progressBarContainer.style.backgroundColor = '#ddd';
+  progressBarContainer.appendChild(progressBar);
 
-    $.ajax({
-        url: '/submit',
-        type: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(data) {
-            var endTime = performance.now(); // Record end time
-            var processingTime = endTime - startTime; // Calculate processing time
+  document.body.appendChild(progressBarContainer);
 
-            result.innerHTML = '<p><b>Generated text<b></p>' + data.data;
-            
-            // Display processing time
-            processingTimeElement.textContent = 'Processing Time: ' + processingTime.toFixed(2) + ' ms';
+  var processingTime = endTime - startTime;
 
-            // Clear the placeholder text after sending the message
-            $('#textInput').val('');
-        },
-        error: function(error) {
-            console.error('Error:', error);
-            // Handle error
-        }
-    });
+  // Update progress bar width based on processing time
+  var progressBarWidth = (processingTime / 1000) * 100; // Assuming a max processing time of 1000ms
+  progressBar.style.width = progressBarWidth + '%';
 }
+
+// Call the function to simulate a process
+simulateProcess();
