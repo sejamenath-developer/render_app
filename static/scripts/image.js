@@ -14,3 +14,30 @@ function previewImage(input) {
         container.style.display = 'none';
     }
 }
+
+
+
+// Simulating progress with a timer
+function move() {
+  let elem = document.getElementById("myBar");
+  let width = 0;
+  let id = setInterval(frame, 10);
+
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+      showNotification();
+    } else {
+      width++;
+      elem.style.width = width + '%';
+    }
+  }
+}
+
+// Showing a notification
+function showNotification() {
+  alert("Progress Complete!");
+}
+
+// Triggering the progress bar animation
+move();
