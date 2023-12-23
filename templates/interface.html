@@ -27,7 +27,7 @@
             <!-- Image preview container -->
             <div id="imagePreviewContainer" style="display: none; text-align: center; padding:10px">
                 <h1 style="font-size: 20px; font-weight: 800; padding:10px"><H1>YOUR IMAGE</H></h1>
-                <img id="imagePreview" src="#" alt="Image Preview" style="width:100px; padding:10px;">
+                <img id="imagePreview" src="#" alt="" style="width:100px; padding:10px;">
             </div>
 
             <div style="display:inline-block;">
@@ -44,7 +44,7 @@
                 </label>
                 <input type="file" id="fileInput" style="display: none" accept=".png, .jpg, .jpeg" onchange="previewImage(this)" name="file">
 
-                <input type="text" placeholder="ask me....???" id="textInput">
+                <input type="text" placeholder="Enter your prompt here..." id="textInput">
                 <button onclick="sendMessage()"><img src="{{ url_for('static', filename='icons/paper_rocket.png') }}" alt="send_icon" class="paper-rocket-icon"></button>
             </div>
         </div>
