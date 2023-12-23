@@ -13,9 +13,9 @@
     height: 5px;
     background-color: black; /* Green color */
     display: none; /* Initially hidden */
-    margin-right:10px;
-    margin-left:10px;
+    margin:10px;
+   margin-top:10px;
     border-radius:30px;
-    transition: width 0.2s ease-in-out; /* Smooth width change */
+    transition: width 0.1s ease-in-out; /* Smooth width change */
 }
 
