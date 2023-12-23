@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ඔ<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -169,27 +169,26 @@ form.addEventListener('submit', async (e) => {
 
 
 
-new TypeIt("#asyncExec", {
-  waitUntilVisible: true,
-})
-  .type("Hello, Welcome to")
-  .exec(async () => {
-    //-- Return a promise that resolves after something happens.
-    await new Promise((resolve, reject) => {
-      setTimeout(() => {
-        return resolve();
-      }, 2000);
-    });
-  })
-  .type("S/AI { S SLASH AI }")
-  .go();
-
 
 
 
 
 </script>
 <style>
+
+.typed-out{
+  overflow: hidden;
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  animation: 
+  typing 1s steps(20, end) forwards;
+  font-size: 1.6rem;
+  width: 0;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
 
 <style>
 
