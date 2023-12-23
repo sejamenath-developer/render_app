@@ -11,8 +11,11 @@
 .progress-bar {
     width: 0%;
     height: 5px;
-    background-color: #4CAF50; /* Green color */
+    background-color: black; /* Green color */
     display: none; /* Initially hidden */
-    transition: width 0.3s ease-in-out; /* Smooth width change */
+    margin-right:10px;
+    margin-left:10px;
+    border-radius:30px;
+    transition: width 0.2s ease-in-out; /* Smooth width change */
 }
 
