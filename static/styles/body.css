@@ -4,3 +4,12 @@ body {
     margin: 0;
   
 }
+
+.btn{
+
+padding:10px 30px;
+background-color:black;
+color:white;
+
+margin-left:40px;
+}
