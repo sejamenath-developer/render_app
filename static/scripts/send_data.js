@@ -23,3 +23,24 @@ function sendMessage() {
         }
     });
 }
+
+
+
+let isScrollingDown = true;
+
+window.addEventListener('scroll', function() {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        isScrollingDown = true;
+    } else {
+        isScrollingDown = false;
+    }
+});
+
+function scrollToBottom() {
+    if (isScrollingDown) {
+        window.scrollTo(0, document.body.scrollHeight);
+        setTimeout(scrollToBottom, 100); // Adjust the delay if needed
+    }
+}
+
+scrollToBottom();
