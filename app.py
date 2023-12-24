@@ -8,14 +8,14 @@ file_path = ''
 app = Flask(__name__)
 
 # Configure Google Generative AI
-genai.configure(api_key="AIzaSyAZZImzWodLf_m8J-EVJLG_nWjBoSyBI6k")
+genai.configure(api_key="AIzaSyAgYD9komBIepaqDvKT3FJSVbynsc9WVkg")
 
 # Set up the model
 generation_config = {
-    "temperature": 0.2,
+    "temperature": 0.4,
     "top_p": 1,
-    "top_k": 100,
-    "max_output_tokens": 8096,
+    "top_k": 32,
+    "max_output_tokens": 4096,
 }
 
 safety_settings = [
