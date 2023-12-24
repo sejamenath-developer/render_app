@@ -5,6 +5,10 @@
 
 Project /Ai integrates AI-powered question and answer systems with art generation tools. Seamlessly merging image-based inquiries with advanced AI responses, it leverages cutting-edge technology to facilitate interactive and creative exploration.
 
+
+##Live Demo : { https://flask-app-31nr.onrender.com }
+
+
 ## Author
 
 Seja Menath
@@ -81,5 +85,3 @@ Mention any contributors, libraries, or resources you'd like to acknowledge.
 ```
 
 Feel free to customize this template based on your project's specific details.
-
-developer :seja menath
