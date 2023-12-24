@@ -44,6 +44,100 @@
 <body>
 
 
+<div class="container">
+    <button id="toggleBtn">&#8285;</button>
+    <nav class="sidenav" id="sideNav">
+      <ul>
+        <li><a href="#">/Ai IMAGE TO TEXT</a></li>
+        <li><a href="#">/AI ART GENERATOR</a></li>
+       
+      </ul>
+    </nav>
+  </div>
+
+<script>
+const toggleBtn = document.getElementById('toggleBtn');
+const sideNav = document.getElementById('sideNav');
+
+toggleBtn.addEventListener('click', () => {
+  if (sideNav.style.width === '250px') {
+    sideNav.style.width = '0';
+  } else {
+    sideNav.style.width = '250px';
+  }
+});
+
+// Hide side navbar when clicking outside the navbar
+window.addEventListener('click', (event) => {
+  if (event.target !== toggleBtn && event.target !== sideNav) {
+    sideNav.style.width = '0';
+  }
+});
+
+</script>
+
+
+
+
+<style>
+    
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+#toggleBtn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidenav ul li {
+  padding: 10px 20px;
+}
+
+.sidenav ul li a {
+  text-decoration: none;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav ul li a:hover {
+  color: #f1f1f1;
+}
+
+
+</style>
+
+
+
+
 
 <center >   <h1>SLASH /AI</h1>    <br>
 
