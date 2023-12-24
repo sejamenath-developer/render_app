@@ -44,7 +44,9 @@ Provide step-by-step instructions on how to install and configure the project.
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/sejamenath1/render_app.git
+
+
 
 # Change into the project directory
 cd your-repository
@@ -68,7 +70,7 @@ If you want others to contribute to your project, provide guidelines and instruc
 
 ## License
 
-This project is licensed under the [License Name] - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the [Apachi] - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Acknowledgments
 
@@ -77,3 +79,5 @@ Mention any contributors, libraries, or resources you'd like to acknowledge.
 ```
 
 Feel free to customize this template based on your project's specific details.
+
+developer :seja menath
