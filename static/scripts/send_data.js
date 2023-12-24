@@ -13,7 +13,7 @@ function sendMessage() {
         contentType: false,
         processData: false,
         success: function(data) {
-            result.innerHTML ='<h1>Data obtained from reference<br>'+data.data;
+            result.innerHTML ='<h2>Data obtained from reference<h2><br><br>'+data.data;
             showSuccessMessage();
             // Handle success
         },
