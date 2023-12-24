@@ -44,3 +44,12 @@ function scrollToBottom() {
 }
 
 scrollToBottom();
+
+
+// Get the form element
+const formElement = document.querySelector('.inside_form');
+
+// Toggle the 'active' class on click
+formElement.addEventListener('click', function() {
+    formElement.classList.toggle('active');
+});
