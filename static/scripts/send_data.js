@@ -1,39 +1,20 @@
-function sendMessage() {
     var userInput = $('#textInput').val();
+    console.log(userInput)
     var result = document.getElementById('results');
     var formData = new FormData();
 
-    formData.append('message', userInput);
-
-    // Show the progress bar
-    var progressBar = document.getElementById('progressBar');
-    progressBar.style.display = 'block';
-    var width = 1;
-    var interval = setInterval(increaseWidth, 10);
-
-    function increaseWidth() {
-        if (width >= 100) {
-            clearInterval(interval);
-            // Hide the progress bar after completion
-            progressBar.style.display = 'none';
-            
-            // Clear the placeholder text after sending the message
-            $('#textInput').val('');
-        } else {
-            width++;
-            progressBar.style.width = width + '%';
-        }
-    }
-
+    formData.append('message', userInput);   
+    console.log('2')
     $.ajax({
         url: '/submit',
         type: 'POST',
         data: formData,
-        contentType: false,
-        processData: false,
+        contentType: True,
+        processData: True,
         success: function(data) {
-            result.innerHTML = '<h3>® Description generated</h3><br>' + data.data;
+            result.innerHTML ='<img src="static/icons/Chatbot.png" alt="Image Preview" class="result-image" style="width:40px"><br>'+data.data;
             showSuccessMessage();
+            // Handle success
         },
         error: function(error) {
             console.error('Error:', error);
