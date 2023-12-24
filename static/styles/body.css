@@ -2,7 +2,7 @@
 body {
     /* Styles for the body */
     margin: 0;
-  
+    font-family:Tahoma, Verdana, sans-serif;
 }
 
 .btn{
