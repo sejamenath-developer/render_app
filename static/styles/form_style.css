@@ -9,13 +9,13 @@
     hight:120vw;
     
 }
-.inside_form {
-    height: 0;
-    overflow: hidden;
-    transition: height 1s ease;
-}
+.inside_form{
+    width: 100%;
+    background-color:transparent;
+    height:auto;
+    margin-bottom:100px;
 
-.inside_form.active {
-    height: auto;
 }
-
+.form_style form {
+    display: inline-block;
+}
