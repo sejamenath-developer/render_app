@@ -43,109 +43,110 @@
 </head>
 <body>
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden; /* Hide scroll bars */
+    }
 
- <div class="container">
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 10px;
+    }
+
+    .hedd {
+      color: white;
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+
+    #toggleBtn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    small {
+      color: #787878;
+    }
+
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      z-index: 9999; /* Ensure it's on top of other elements */
+    }
+
+    .sidenav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidenav ul li {
+      padding: 10px 20px;
+    }
+
+    .sidenav ul li a {
+      text-decoration: none;
+      color: black;
+      display: block;
+      transition: 0.3s;
+      border: 1;
+      background-color: white;
+      border: white;
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .sidenav ul li a:hover {
+      color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
     <button id="toggleBtn">&#8285;</button>
     <nav class="sidenav" id="sideNav">
-     <center>   <h1 class="hedd">SLASH /AI</h1><small>© smenath development</small></center>
+      <center><h1 class="hedd">SLASH /AI</h1><small>© smenath development</small></center>
       <ul>
         <li><a href="https://flask-app-31nr.onrender.com">New tab</a></li>
         <li><a href="https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html">Art generate</a></li>
-        <li><a href="smenath.development.gmail.com">Email</a></li>
+        <li><a href="mailto:smenath.development@gmail.com">Email</a></li>
         <li><a href="https://github.com/sejamenath-developer">Github</a></li>
-       <center> <div id="google_translate_element"></div></center>
+        <center><div id="google_translate_element"></div></center>
       </ul>
     </nav>
   </div>
+
   <script>
-const toggleBtn = document.getElementById('toggleBtn');
-const sideNav = document.getElementById('sideNav');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const sideNav = document.getElementById('sideNav');
 
-toggleBtn.addEventListener('click', () => {
-  if (sideNav.style.width === '250px') {
-    sideNav.style.width = '0';
-  } else {
-    sideNav.style.width = '250px';
-  }
-});
+    toggleBtn.addEventListener('click', () => {
+      if (sideNav.style.width === '250px') {
+        sideNav.style.width = '0';
+      } else {
+        sideNav.style.width = '250px';
+      }
+    });
 
-// Hide side navbar when clicking outside the navbar
-window.addEventListener('click', (event) => {
-  if (event.target !== toggleBtn && event.target !== sideNav) {
-    sideNav.style.width = '0';
-  }
-});
-
-
-
-
-</script>
-
-<style>
-    
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 10px;
-}
-.hedd{
-    color:white;
-    font-size:34px ;
-    margin-bottom:20px;
-}
-#toggleBtn {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-small{color:#787878;}
-
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  top: 0;
-  right: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidenav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidenav ul li {
-  padding: 10px 20px;
-}
-
-.sidenav ul li a {
-  text-decoration: none;
-  color:black;
-  display: block;
-  transition: 0.3s;
-  border:1;
-  background-color:white;
-  border:white;
-  padding:20px;;
-  border-radius:20px;
-}
-
-.sidenav ul li a:hover {
-  color: #f1f1f1;
-}
-
-
-</style>
+    // Hide side navbar when clicking outside the navbar
+    window.addEventListener('click', (event) => {
+      if (event.target !== toggleBtn && event.target !== sideNav) {
+        sideNav.style.width = '0';
+      }
+    });
+  </script>
 
 
 
