@@ -1,5 +1,7 @@
 
-# Project SLASH/AI
+## Project 
+
+# SLASH/AI
 
 Project /Ai integrates AI-powered question and answer systems with art generation tools. Seamlessly merging image-based inquiries with advanced AI responses, it leverages cutting-edge technology to facilitate interactive and creative exploration.
 
