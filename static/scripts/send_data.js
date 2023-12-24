@@ -1,3 +1,4 @@
+function sendMessage() {
     var userInput = $('#textInput').val();
     console.log(userInput)
     var result = document.getElementById('results');
@@ -9,10 +10,10 @@
         url: '/submit',
         type: 'POST',
         data: formData,
-        contentType: True,
-        processData: True,
+        contentType: false,
+        processData: false,
         success: function(data) {
-            result.innerHTML ='<img src="static/icons/Chatbot.png" alt="Image Preview" class="result-image" style="width:40px"><br>'+data.data;
+            result.innerHTML ='<h1>Data obtained from reference<br>'+data.data;
             showSuccessMessage();
             // Handle success
         },
