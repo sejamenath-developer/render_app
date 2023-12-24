@@ -44,18 +44,20 @@
 <body>
 
 
-<div class="container">
+ <div class="container">
     <button id="toggleBtn">&#8285;</button>
     <nav class="sidenav" id="sideNav">
+     <center>   <h1 class="hedd">SLASH /AI</h1><small>© smenath development</small></center>
       <ul>
-        <li><a href="#">/Ai IMAGE TO TEXT</a></li>
-        <li><a href="#">/AI ART GENERATOR</a></li>
-       
+        <li><a href="https://flask-app-31nr.onrender.com">New tab</a></li>
+        <li><a href="https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html">Art generate</a></li>
+        <li><a href="smenath.development.gmail.com">Email</a></li>
+        <li><a href="https://github.com/sejamenath-developer">Github</a></li>
+       <center> <div id="google_translate_element"></div></center>
       </ul>
     </nav>
   </div>
-
-<script>
+  <script>
 const toggleBtn = document.getElementById('toggleBtn');
 const sideNav = document.getElementById('sideNav');
 
@@ -74,10 +76,10 @@ window.addEventListener('click', (event) => {
   }
 });
 
+
+
+
 </script>
-
-
-
 
 <style>
     
@@ -92,13 +94,18 @@ body {
   justify-content: flex-end;
   padding: 10px;
 }
-
+.hedd{
+    color:white;
+    font-size:34px ;
+    margin-bottom:20px;
+}
 #toggleBtn {
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
 }
+small{color:#787878;}
 
 .sidenav {
   height: 100%;
@@ -123,9 +130,14 @@ body {
 
 .sidenav ul li a {
   text-decoration: none;
-  color: #818181;
+  color:black;
   display: block;
   transition: 0.3s;
+  border:1;
+  background-color:white;
+  border:white;
+  padding:20px;;
+  border-radius:20px;
 }
 
 .sidenav ul li a:hover {
@@ -139,26 +151,16 @@ body {
 
 
 
+
 <center >   <h1>SLASH /AI</h1>    <br>
 
 
-
-<div id="google_translate_element"></div>    <br><br>
-
- </center>  
 
 
 
 
  <div class="animation-buttons">
 <br>
-<br>
- <center><a href="https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html" class="btn"  onmousedown="return false;">Art Generate</a></center>
-
-
-
-<br>
-
 
 
 
@@ -173,10 +175,6 @@ body {
 
                <center> <img id="imagePreview" src="" alt="" class="preimg">
 <br>
-<div class="progress-container">
-    <div class="progress-bar" id="myBar"></div>
-  </div>
-            </div></center>
 
             <div style="display:inline-block;">
                 <h1 id="results" class="result"></h1>
@@ -185,9 +183,7 @@ body {
     </div>
 
 
-<center><br><br><br><small class="dev">
-©www.smenath.development.com
-</small></center>
+
     <div class="floating-input">
         <div style="width:100%">
             <div class="input-container">
