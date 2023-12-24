@@ -7,7 +7,7 @@
     padding: 15px; 
     border-radius: 32px; 
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
-    display: flex;
+
     align-items: center;
     width: 80vw; 
     max-width: 700px; 
