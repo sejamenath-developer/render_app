@@ -43,6 +43,89 @@
 </head>
 <body>
 
+  
+
+
+
+
+
+
+<center >   <h1>SLASH /AI</h1> </center>   <br>
+
+
+
+
+
+
+ <div class="animation-buttons">
+<br>
+
+
+
+    <div class="form_style">
+        <div class="inside_form">
+            <!-- Image preview container -->
+            <div id="imagePreviewContainer" style="display: none; text-align: center; padding:10px">
+                
+
+
+
+
+               <center> <img id="imagePreview" src="" alt="" class="preimg"></center>
+<br>
+
+          <center>  <div style="display:inline-block;">
+                <h1 id="results" class="result"></h1>
+            </div>
+        </div>
+    </div></center>
+<br><br><br><div class="his"></div>
+
+
+
+    <div class="floating-input">
+        <div style="width:100%">
+            <div class="input-container">
+                <label for="fileInput" class="paper-clip-label" onclick="fileUpload()">
+                  
+
+
+  <img src="{{ url_for('static', filename='icons/paper_clip.png') }}" alt="Paper Clip Icon" class="paper-clip-icon">
+
+
+                </label>
+                <input type="file" id="fileInput" style="display: none" accept=".png, .jpg, .jpeg" onchange="previewImage(this)" name="file">
+
+                <input type="text" placeholder="Enter your prompt here..." id="textInput">
+                <button onclick="sendMessage()"><img src="{{ url_for('static', filename='icons/paper_rocket.png') }}" alt="send_icon" class="paper-rocket-icon"></button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
 
     .container1 {
@@ -107,15 +190,14 @@
       color: #f1f1f1;
     }
 
-
-
-    #translate-ltr{
+    #translate-ltr {
       margin-top: -40px;
-}
-    #goog-te-banner-frame{
-      display:none;
+    }
+
+    #goog-te-banner-frame {
+      display: none;
       Margin-top: -20px;
-}
+    }
 
   </style>
 </head>
@@ -139,10 +221,10 @@
     const sideNav = document.getElementById('sideNav');
 
     toggleBtn.addEventListener('click', () => {
-      if (sideNav.style.width === '250px') {
+      if (sideNav.style.width === '100%') {
         sideNav.style.width = '0';
       } else {
-        sideNav.style.width = '250px';
+        sideNav.style.width = '100%';
       }
     });
 
@@ -152,70 +234,10 @@
         sideNav.style.width = '0';
       }
     });
-
-
-document.querySelector('.notification-bar').style.display = 'none'; 
   </script>
-
-
-
-
-
-
-<center >   <h1>SLASH /AI</h1> </center>   <br>
-
-
-
-
-
-
- <div class="animation-buttons">
-<br>
-
-
-
-    <div class="form_style">
-        <div class="inside_form">
-            <!-- Image preview container -->
-            <div id="imagePreviewContainer" style="display: none; text-align: center; padding:10px">
-                
-
-
-
-
-               <center> <img id="imagePreview" src="" alt="" class="preimg"></center>
-<br>
-
-          <center>  <div style="display:inline-block;">
-                <h1 id="results" class="result"></h1>
-            </div>
-        </div>
-    </div></center>
-<br><br><br><div class="his"></div>
-
-
-
-    <div class="floating-input">
-        <div style="width:100%">
-            <div class="input-container">
-                <label for="fileInput" class="paper-clip-label" onclick="fileUpload()">
-                  
-
-
-  <img src="{{ url_for('static', filename='icons/paper_clip.png') }}" alt="Paper Clip Icon" class="paper-clip-icon">
-
-
-                </label>
-                <input type="file" id="fileInput" style="display: none" accept=".png, .jpg, .jpeg" onchange="previewImage(this)" name="file">
-
-                <input type="text" placeholder="Enter your prompt here..." id="textInput">
-                <button onclick="sendMessage()"><img src="{{ url_for('static', filename='icons/paper_rocket.png') }}" alt="send_icon" class="paper-rocket-icon"></button>
-            </div>
-        </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </body>
 </html>
+
 
 
 
