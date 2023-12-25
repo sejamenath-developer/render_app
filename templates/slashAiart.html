@@ -6,15 +6,18 @@
 
     <title>SLASH /AI</title>
 
-</head>
-
+</head>  
 
 <div class="container">
     <h1 class="h12">SLASH /AI</h1>
     
+    
+    
+  
+    
     <form action="" class="gen-form">
 
-       <div class="gh"><input type="text" name="" id="user-prompt", placeholder="Type your prompt here" autocomplete="off"></div>
+       <div class="gh"><input type="text" name="" id="user-prompt" placeholder="Enter your prompt here..." autocomplete="off"></div>
        <br><br> <button type="button" id="generate"><center><b>Generate</b></center></button>
 
     </form>
@@ -151,7 +154,25 @@
             return false;
     };
 
-    
+    let isScrollingDown = true;
+
+window.addEventListener('scroll', function() {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        isScrollingDown = true;
+    } else {
+        isScrollingDown = false;
+    }
+});
+
+function scrollToBottom() {
+    if (isScrollingDown) {
+        window.scrollTo(0, document.body.scrollHeight);
+        setTimeout(scrollToBottom, 100); // Adjust the delay if needed
+    }
+}
+
+scrollToBottom();
+
 </script>
 
 </body>
@@ -177,7 +198,11 @@ border-radius: 10px;
 text-align: center;
 
 }
-
+#google_element{
+    
+    width:30px;
+    height:10px;
+}
 /* Styling the h1 element */
 .h12 {
 font-size: 32px;
@@ -194,31 +219,34 @@ margin-right: 20px;
 
 }
 .gh{
-    
-    
-    
     padding: 20px;
-    background-color:White;
+    background-color:white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
+    align-items: center;
+    
+    border-radius:50px;
+
 }
 
 /* Styling the input and button elements */
 .gen-form input[type="text"] {
-padding: 8px;
-border: 2px solid #1976D2;
+border: px solid black;
+color:black;
 /* Gray border for the input */
-border-radius: 5px;
-width: 290px;
+border-radius: 1435px;
+width: 260px;
+height:50px;
 }
 #user-prompt {
 align-items: center;
 position: sticky;
 bottom: 0;
 flex: 1;
-    padding: 10px;
+    
     border: none;
-    background-color: #FFFFFF; /* Slightly lighter gray-black background for input field */
+    background-color:transparent; /* Slightly lighter gray-black background for input field */
     color: black; /* White text */
-    border-radius: 20px;
+    border-radius: 70px;
     
 
 }
@@ -247,7 +275,7 @@ font-size: 15px;
 color:Black;
 padding:1px;
 border-radius:40px;
-background: linear-gradient(to right,transparent 20%, transparent 40%, #686868 50%, #686868 55%, transparent 70%, transparent 100%);
+background: linear-gradient(to right,transparent 20%, transparent 40%, #A8A8A8 50%, #A8A8A8 55%, transparent 70%, transparent 100%);
   background-size: 200% auto;
   
   animation: shine 0.5s linear infinite;
@@ -304,117 +332,5 @@ margin:10px;
 font-size:9px;
 }
 </style>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      overflow: hidden; /* Hide scroll bars */
-    }
-
-    .container {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 10px;
-    }
-
-    .hedd {
-      color: white;
-      font-size: 34px;
-      margin-bottom: 20px;
-    }
-
-    #toggleBtn {
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    small {
-      color: #787878;
-    }
-
-    .sidenav {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      top: 0;
-      right: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 60px;
-      z-index: 9999; /* Ensure it's on top of other elements */
-    }
-
-    .sidenav ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .sidenav ul li {
-      padding: 10px 20px;
-    }
-
-    .sidenav ul li a {
-      text-decoration: none;
-      color: black;
-      display: block;
-      transition: 0.3s;
-      border: 1;
-      background-color: white;
-      border: white;
-      padding: 20px;
-      border-radius: 20px;
-    }
-
-    .sidenav ul li a:hover {
-      color: #f1f1f1;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <button id="toggleBtn">&#8285;</button>
-    <nav class="sidenav" id="sideNav">
-      <center><h1 class="hedd">SLASH /AI</h1><small>© smenath development</small></center>
-      <ul>
-      
-        
-        <li><a href="https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html">New tab</a></li>
-      
-        <li><a href="https://flask-app-31nr.onrender.com">/Ai home</a></li>
-        
-        
-        
-      
-        <li><a href="mailto:smenath.development@gmail.com">Email</a></li>
-        <li><a href="https://github.com/sejamenath-developer">Github</a></li>
-        
-      </ul>
-    </nav>
-  </div>
-
-  <script>
-    const toggleBtn = document.getElementById('toggleBtn');
-    const sideNav = document.getElementById('sideNav');
-
-    toggleBtn.addEventListener('click', () => {
-      if (sideNav.style.width === '250px') {
-        sideNav.style.width = '0';
-      } else {
-        sideNav.style.width = '250px';
-      }
-    });
-
-    // Hide side navbar when clicking outside the navbar
-    window.addEventListener('click', (event) => {
-      if (event.target !== toggleBtn && event.target !== sideNav) {
-        sideNav.style.width = '0';
-      }
-    });
-  </script>
 
 </html>
