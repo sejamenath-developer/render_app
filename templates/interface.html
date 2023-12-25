@@ -1,81 +1,55 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <script>src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-Download
-Copy code
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Slash/Ai</title>
-<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Sitelogo.png') }}">
+    <title>/AI</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/head.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/body.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/form_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/floating_input.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/result.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/icon.css') }}">
 
+    <!-- Link to external JavaScript files -->
+    <script src="{{ url_for('static', filename='scripts/file_attachment.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='scripts/image.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='scripts/send_data.js') }}" defer></script>
+</head>
+<body>
+    <div class="head">
+        <h1><img src="{{ url_for('static', filename='icons/Chatbot.png') }}" alt="icon" style="width:50px; padding:0; margin: 0px 0px -10px 0px;">SLASH/AI</h1>
+    </div>
+    <div class="form_style">
+        <div class="inside_form">
+            <!-- Image preview container -->
+            <div id="imagePreviewContainer" style="display: none; text-align: center; padding:40px">
+                <h1 style="font-size: 20px; font-weight: 800; padding:10px"><u>Image Preview</u></h1>
+                <img id="imagePreview" src="#" alt="" style="width:100px; padding:60px;">
+            </div>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/head.css') }}">
-
-
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/body.css') }}">
-
-
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/form_style.css') }}">
-
-
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/floating_input.css') }}">
-
-
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/result.css') }}">
-
-
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/icon.css') }}">
-
-<!-- Link to external JavaScript files -->
-<script src="{{ url_for('static', filename='scripts/file_attachment.js') }}" defer></script>
-
-
-
-<script src="{{ url_for('static', filename='scripts/image.js') }}" defer></script>
-<script src="{{ url_for('static', filename='scripts/send_data.js') }}" defer></script>
-</head> <body>
-<br><br><br>
-
-<center > <h1>SLASH /AI</h1> </center> <br> <div class="animation-buttons"> <br>
-Download
-Copy code
-<div class="form_style">
-    <div class="inside_form">
-        <!-- Image preview container -->
-        <div id="imagePreviewContainer" style="display: none; text-align: center; padding:10px">
-
-
-
-
-
-           <center> <img id="imagePreview" src="" alt="" class="preimg"></center>
-<br>
-Download
-Copy code
-      <center>  <div style="display:inline-block;">
-            <h1 id="results" class="result"></h1>
+            <div style="display:inline-block;">
+                <h1 id="results" class="result"></h1>
+            </div>
         </div>
     </div>
-</div></center>
-<br><br><br><div class="his"></div>
 
-Download
-Copy code
-<div class="floating-input">
-    <div style="width:100%">
-        <div class="input-container">
-            <label for="fileInput" class="paper-clip-label" onclick="fileUpload()">
-<img src="{{ url_for('static', filename='icons/paper_clip.png') }}" alt="Paper Clip Icon" class="paper-clip-icon">
-Download
-Copy code
-            </label>
-            <input type="file" id="fileInput" style="display: none" accept=".png, .jpg, .jpeg" onchange="previewImage(this)" name="file">
+    <div class="floating-input">
+        <div style="width:100%">
+            <div class="input-container">
+                <label for="fileInput" class="paper-clip-label" onclick="fileUpload()">
+                    <img src="{{ url_for('static', filename='icons/paper_clip.png') }}" alt="Paper Clip Icon" class="paper-clip-icon">
+                </label>
+                <input type="file" id="fileInput" style="display: none" accept=".png, .jpg, .jpeg" onchange="previewImage(this)" name="file">
 
-            <input type="text" placeholder="Enter your prompt here..." id="textInput">
-            <button onclick="sendMessage()"><img src="{{ url_for('static', filename='icons/paper_rocket.png') }}" alt="send_icon" class="paper-rocket-icon"></button>
+                <input type="text" placeholder="ask me....???" id="textInput">
+                <button onclick="sendMessage()"><img src="{{ url_for('static', filename='icons/paper_rocket.png') }}" alt="send_icon" class="paper-rocket-icon"></button>
+            </div>
         </div>
     </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<style> .container1 { display: flex; align-items: center; justify-content: flex-end; padding: 10px; } .hedd { color: white; font-size: 34px; margin-bottom: 20px; } .backBtn { position: fixed; bottom: 20px; left: 20px; background: #333; color: white; padding: 10px 20px; border: none; cursor: pointer; display: none; /* Initially hidden */ z-index: 10000; /* Ensure it's on top of other elements */ } #toggleBtn { position: fixed; top: 20px; right: 20px; background: none; border: none; font-size: 34px; cursor: pointer; z-index: 10000; /* Ensure it's on top of other elements */ } small { color: #787878; } .sidenav { height: 100%; width: 0; position: fixed; top: 0; right: 0; background-color: #111; overflow-x: hidden; transition: 0.5s; padding-top: 60px; z-index: 9999; /* Ensure it's on top of other elements */ } .sidenav ul { list-style-type: none; padding: 0; } .sidenav ul li { padding: 10px 20px; } .sidenav ul li a { text-decoration: none; color: black; display: block; transition: 0.3s; border: 1; background-color: white; border: white; padding: 20px; border-radius: 20px; } .sidenav ul li a:hover { color: #f1f1f1; } #translate-ltr { margin-top: -40px; } #goog-te-banner-frame { display: none; Margin-top: -20px; } </style> <div class="container1"> <button id="toggleBtn">&#8285;</button> <nav class="sidenav" id="sideNav">
-<button class="backBtn" id="backButton">Back</button>
-
-<!-- Your existing JavaScript <center><h1 class="hedd">SLASH /AI</h1><small>© smenath development</small></center> <ul> <li><a href="https://flask-app-31nr.onrender.com">New tab</a></li> <li><a href="https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html">Art generate</a></li> <li><a href="mailto:smenath.development@gmail.com">Email</a></li> <li><a href="https://github.com/sejamenath-developer">Github</a></li><br> <center><div id="google_translate_element"></div></center> </ul> </nav> </div> <script> const toggleBtn = document.getElementById('toggleBtn'); const sideNav = document.getElementById('sideNav'); toggleBtn.addEventListener('click', () => { if (sideNav.style.width === '100%') { sideNav.style.width = '0'; } else { sideNav.style.width = '100%'; } }); // Hide side navbar when clicking outside the navbar window.addEventListener('click', (event) => { if (event.target !== toggleBtn && event.target !== sideNav) { sideNav.style.width = '0'; } }); document.addEventListener('DOMContentLoaded', function() { const backButton = document.getElementById('backButton'); backButton.addEventListener('click', function() { window.history.back(); }); // Show the back button when there's a history to go back window.addEventListener('popstate', function() { if (window.history.length > 1) { backButton.style.display = 'block'; } else { backButton.style.display = 'none'; } }); }); </script> </body> </html> <script type="text/javascript"> function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element'); } </script> <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> </body></html> 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</body>
+</html>
