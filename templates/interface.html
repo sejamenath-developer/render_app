@@ -141,11 +141,16 @@
       margin-bottom: 20px;
     }
 
-    #toggleBtn {
+        #toggleBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+
       background: none;
       border: none;
-      font-size: 24px;
+      font-size: 34px;
       cursor: pointer;
+      z-index: 10000; /* Ensure it's on top of other elements */
     }
 
     small {
