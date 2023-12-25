@@ -141,6 +141,21 @@
       margin-bottom: 20px;
     }
 
+
+    .backBtn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      display: none; /* Initially hidden */
+      z-index: 10000; /* Ensure it's on top of other elements */
+    }
+
+
         #toggleBtn {
       position: fixed;
       top: 20px;
@@ -210,7 +225,12 @@
   <div class="container1">
     <button id="toggleBtn">&#8285;</button>
     <nav class="sidenav" id="sideNav">
-      <center><h1 class="hedd">SLASH /AI</h1><small>© smenath development</small></center>
+
+
+
+<button class="backBtn" id="backButton">Back</button>
+
+  <!-- Your existing JavaScript       <center><h1 class="hedd">SLASH /AI</h1><small>© smenath development</small></center>
       <ul>
         <li><a href="https://flask-app-31nr.onrender.com">New tab</a></li>
         <li><a href="https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html">Art generate</a></li>
@@ -239,6 +259,25 @@
         sideNav.style.width = '0';
       }
     });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const backButton = document.getElementById('backButton');
+
+  backButton.addEventListener('click', function() {
+    window.history.back();
+  });
+
+  // Show the back button when there's a history to go back
+  window.addEventListener('popstate', function() {
+    if (window.history.length > 1) {
+      backButton.style.display = 'block';
+    } else {
+      backButton.style.display = 'none';
+    }
+  });
+});
+
   </script>
 </body>
 </html>
