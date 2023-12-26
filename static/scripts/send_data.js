@@ -22,6 +22,12 @@ function sendMessage() {
 
 
 
+if (userInput.startsWith('/fb ')) {
+    var username = userInput.substring(4); // Extract the username after '/fb '
+    var fbURL = 'https://www.facebook.com/' + username;
+    window.location.href = fbURL; // Redirect to the constructed URL
+    return; // Stop further execution
+}
 
 
 
