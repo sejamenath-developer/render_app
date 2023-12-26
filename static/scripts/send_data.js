@@ -60,8 +60,8 @@ if (userInput.startsWith('/fb ')) {
 
 
 
-  if (userInput.includes('/youtube')) {
-      window.location.href = 'https://www.youtube.com'; // Replace with your desired URL
+  if (userInput.includes('/chat')) {
+      window.location.href = 'https://dub9yt9jaous2llnwnuokw.on.drv.tw/NUROAIRELEASE2023DECEMBER22/Slashaichatbot  '; // Replace with your desired URL
         return; // Stop further execution
     }
 
