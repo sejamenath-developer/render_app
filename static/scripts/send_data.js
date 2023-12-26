@@ -24,16 +24,12 @@ function sendMessage() {
 
 if (userInput.startsWith('/fb ')) {
     var username = userInput.substring(4); // Extract the username after '/fb '
-    var fbAppURL = 'fb://profile/' + username;
-    var webURL = 'https://www.facebook.com/' + username;
-
-    // Try to open in the Facebook app
-    window.location.href = fbAppURL;
-
-    // If the Facebook app isn't available, open in the browser
+    var fbAppURL = 'fb://profile/' + username; // Construct the Facebook app URL
+    window.location.href = fbAppURL; // Redirect to the Facebook app if available
     setTimeout(function() {
-        window.location.href = webURL;
-    }, 100);
+        // If the Facebook app isn't available, redirect to the web URL
+        window.location.href = 'https://www.facebook.com/' + username;
+    }, 4000); // Set a timeout to redirect to web URL after 1 second if app isn't opened
     return; // Stop further execution
 }
 
