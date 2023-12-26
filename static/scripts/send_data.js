@@ -70,6 +70,10 @@ if (userInput.includes('/upscale')) {
     }
 
 
+if (userInput.includes('/bgremove')) {
+      window.location.href = 'https://sejamenath2023-bgremoveslashai1.hf.space/ '; // Replace with your desired URL
+        return; // Stop further execution
+    }
 
 
 
