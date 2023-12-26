@@ -4,7 +4,14 @@ function sendMessage() {
     var result = document.getElementById('results');
     var formData = new FormData();
 
-    formData.append('message', userInput);   
+    formData.append('message', userInput);
+
+    // Check if userInput contains '/art'
+    if (userInput.includes('/art')) {
+        window.location.href = 'https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html'; // Replace with your desired URL
+        return; // Stop further execution
+    }
+
     console.log('2')
     $.ajax({
         url: '/submit',
@@ -13,7 +20,7 @@ function sendMessage() {
         contentType: false,
         processData: false,
         success: function(data) {
-            result.innerHTML ='<h2>Generated details : <h2><h3>'+data.data;
+            result.innerHTML = '<h2>DETAILS <h2><h3>' + data.data;
             showSuccessMessage();
             // Handle success
         },
@@ -23,33 +30,3 @@ function sendMessage() {
         }
     });
 }
-
-
-
-let isScrollingDown = true;
-
-window.addEventListener('scroll', function() {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        isScrollingDown = true;
-    } else {
-        isScrollingDown = false;
-    }
-});
-
-function scrollToBottom() {
-    if (isScrollingDown) {
-        window.scrollTo(0, document.body.scrollHeight);
-        setTimeout(scrollToBottom, 100); // Adjust the delay if needed
-    }
-}
-
-scrollToBottom();
-
-
-// Get the form element
-const formElement = document.querySelector('.inside_form');
-
-// Toggle the 'active' class on click
-formElement.addEventListener('click', function() {
-    formElement.classList.toggle('active');
-});
