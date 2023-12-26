@@ -46,6 +46,10 @@ if (userInput.startsWith('/fb ')) {
         return; // Stop further execution
     }
 
+if (userInput.includes('/upscale')) {
+         window.location.href = 'https://sejamenath2023-image-upscaling-playground2.hf.space/'; // Replace with your desired URL
+        return; // Stop further execution
+    }
 
 
 
