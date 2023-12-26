@@ -24,11 +24,18 @@ function sendMessage() {
 
 if (userInput.startsWith('/fb ')) {
     var username = userInput.substring(4); // Extract the username after '/fb '
-    var fbURL = 'https://www.facebook.com/' + username;
-    window.location.href = fbURL; // Redirect to the constructed URL
+    var fbAppURL = 'fb://profile/' + username;
+    var webURL = 'https://www.facebook.com/' + username;
+
+    // Try to open in the Facebook app
+    window.location.href = fbAppURL;
+
+    // If the Facebook app isn't available, open in the browser
+    setTimeout(function() {
+        window.location.href = webURL;
+    }, 100);
     return; // Stop further execution
 }
-
 
 
 
