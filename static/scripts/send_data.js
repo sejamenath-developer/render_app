@@ -31,6 +31,93 @@ function sendMessage() {
 
 
 
+// Check if userInput contains '/art'
+
+
+
+    if (userInput.includes('/github')) {
+    
+    
+    
+        window.location.href = '
+        
+        
+        
+        
+        https://github.com/sejamenath-developer
+        
+        
+        
+        
+        '; // Replace with your desired URL
+        return; // Stop further execution
+    }
+
+
+
+
+
+
+
+
+// Check if userInput contains '/art'
+
+
+
+    if (userInput.includes('/fb')) {
+    
+    
+    
+        window.location.href = '
+        
+        
+        
+        
+        https://www.facebook.com/sejamenathdesilva?mibextid=ZbWKwL
+        
+        
+        
+        
+        '; // Replace with your desired URL
+        return; // Stop further execution
+    }
+
+
+
+
+
+
+
+
+
+// Check if userInput contains '/art'
+
+
+
+    if (userInput.includes('/fb')) {
+    
+    
+    
+        window.location.href = '
+        
+        
+        
+        
+        https://www.youtube.com
+        
+        
+        
+        
+        '; // Replace with your desired URL
+        return; // Stop further execution
+    }
+
+
+
+
+
+
+
 
     console.log('2')
     $.ajax({
