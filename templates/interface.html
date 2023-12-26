@@ -305,18 +305,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// Assuming you have an input field with id "textInput" and a button triggering this function
 function sendMessage() {
-    var userInput = document.getElementById('textInput').value.toLowerCase(); // Get the user input and convert it to lowercase for case insensitivity
-
-    if (userInput.includes('/art')) { // Check if the input contains "/art"
-        // If the input contains "/art", create a link to a webpage
-        var link = document.createElement('a');
-        link.href = 'https://yourwebsite.com/artpage'; // Replace 'https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html   ' with your actual webpage URL
-        link.textContent = 'https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html';
-        document.body.appendChild(link); // Append the link to the body of the webpage
-    }
-}
+            var userInput = document.getElementById('textInput').value;
+            if (userInput.toLowerCase() === '/art') {
+                // Redirect to the art page
+                window.location.href = 'https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html'; // Replace 'https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html' with the actual page URL
+            } else {
+                // Handle other cases or continue with your logic
+                console.log('Processing other inputs...');
+            }
+        }
 
 
 
