@@ -300,4 +300,27 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 </script>
 
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+
+
+
+
+// Assuming you have an input field with id "textInput" and a button triggering this function
+function sendMessage() {
+    var userInput = document.getElementById('textInput').value.toLowerCase(); // Get the user input and convert it to lowercase for case insensitivity
+
+    if (userInput.includes('/art')) { // Check if the input contains "/art"
+        // If the input contains "/art", create a link to a webpage
+        var link = document.createElement('a');
+        link.href = 'https://yourwebsite.com/artpage'; // Replace 'https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html   ' with your actual webpage URL
+        link.textContent = 'https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html';
+        document.body.appendChild(link); // Append the link to the body of the webpage
+    }
+}
+
+
+
+
+
+
+</script>
