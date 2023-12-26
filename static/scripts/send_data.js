@@ -12,6 +12,26 @@ function sendMessage() {
         return; // Stop further execution
     }
 
+
+
+// Check if userInput contains '/art'
+    if (userInput.includes('/contact')) {
+        window.location.href = 'mailto:wdsejamenath@gmail.com'; // Replace with your desired URL
+        return; // Stop further execution
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     console.log('2')
     $.ajax({
         url: '/submit',
