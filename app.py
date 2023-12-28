@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, jsonify
 from pathlib import Path
 import google.generativeai as genai
-import mimetypes  # Import the mimetypes module
+from googletrans import Translator  # Import the Translator from googletrans module
+import mimetypes
 
 file_path = ''
 
@@ -41,6 +42,8 @@ model = genai.GenerativeModel(model_name="gemini-pro-vision",
                               generation_config=generation_config,
                               safety_settings=safety_settings)
 
+translator = Translator()
+
 @app.route('/')
 def index():
     return render_template('interface.html')
@@ -68,6 +71,9 @@ def submit():
     user_message = request.form.get('message')
     print('Received message from frontend:', user_message)
 
+    # Translate the user's message to English
+    translated_message = translator.translate(user_message, src='auto', dest='en').text
+
     if not file_path.exists():
         return jsonify({"error": "Could not find the uploaded image"})
 
@@ -82,7 +88,7 @@ def submit():
     ]
 
     prompt_parts = [
-        user_message,
+        translated_message,  # Use the translated message in the prompt
         image_parts[0],
         "",
     ]
