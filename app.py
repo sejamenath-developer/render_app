@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from pathlib import Path
+from googletrans import Translator  # Import Translator from googletrans
 import google.generativeai as genai
-from googletrans import Translator  # Import the Translator from googletrans module
 import mimetypes
 
 file_path = ''
@@ -58,7 +58,6 @@ def upload():
     if file.filename == '':
         return jsonify({"error": "No selected file"})
 
-    # Save the uploaded file
     upload_folder = Path("uploads")
     upload_folder.mkdir(exist_ok=True)
     global file_path
@@ -71,13 +70,9 @@ def submit():
     user_message = request.form.get('message')
     print('Received message from frontend:', user_message)
 
-    # Translate the user's message to English
-    translated_message = translator.translate(user_message, src='auto', dest='en').text
-
     if not file_path.exists():
         return jsonify({"error": "Could not find the uploaded image"})
 
-    # Determine the MIME type using the mimetypes module
     mime_type, _ = mimetypes.guess_type(file_path)
 
     image_parts = [
@@ -87,8 +82,12 @@ def submit():
         },
     ]
 
+    # Translate the user's message into English
+    translated_message = translator.translate(user_message, dest='en').text
+    print('Translated message:', translated_message)
+
     prompt_parts = [
-        translated_message,  # Use the translated message in the prompt
+        translated_message,
         image_parts[0],
         "",
     ]
