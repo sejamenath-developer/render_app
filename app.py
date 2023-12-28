@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from pathlib import Path
-from googletrans import Translator  # Import the Translator from googletrans library
 import google.generativeai as genai
-import mimetypes
+import mimetypes  # Import the mimetypes module
 
 file_path = ''
 
@@ -11,15 +10,58 @@ app = Flask(__name__)
 # Configure Google Generative AI
 genai.configure(api_key="AIzaSyAgYD9komBIepaqDvKT3FJSVbynsc9WVkg")
 
-# Set up the model, safety settings, etc. (your existing code)
+# Set up the model
+generation_config = {
+    "temperature": 0.4,
+    "top_p": 1,
+    "top_k": 32,
+    "max_output_tokens": 4096,
+}
 
-translator = Translator()
+safety_settings = [
+    {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+    },
+    {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+    },
+    {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+    },
+    {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+    }
+]
+
+model = genai.GenerativeModel(model_name="gemini-pro-vision",
+                              generation_config=generation_config,
+                              safety_settings=safety_settings)
 
 @app.route('/')
 def index():
     return render_template('interface.html')
 
-# ... (your existing code for file upload and submission)
+@app.route('/upload', methods=['POST'])
+def upload():
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part"})
+
+    file = request.files['file']
+
+    if file.filename == '':
+        return jsonify({"error": "No selected file"})
+
+    # Save the uploaded file
+    upload_folder = Path("uploads")
+    upload_folder.mkdir(exist_ok=True)
+    global file_path
+    file_path = upload_folder / file.filename
+    file.save(file_path)
+    return jsonify({"success": "File uploaded successfully"})
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -29,6 +71,7 @@ def submit():
     if not file_path.exists():
         return jsonify({"error": "Could not find the uploaded image"})
 
+    # Determine the MIME type using the mimetypes module
     mime_type, _ = mimetypes.guess_type(file_path)
 
     image_parts = [
@@ -38,22 +81,16 @@ def submit():
         },
     ]
 
-    # Translate input message from Sinhala to English
-    translated_message = translator.translate(user_message, src='si', dest='en').text
-
     prompt_parts = [
-        translated_message,  # Use the translated message
+        user_message,
         image_parts[0],
         "",
     ]
 
     response = model.generate_content(prompt_parts)
 
-    # Translate the generated response from English back to Sinhala
-    translated_response = translator.translate(response.text, src='en', dest='si').text
-
-    print(translated_response)
-    return jsonify(data=translated_response)
+    print(response.text)
+    return jsonify(data=response.text)
 
 if __name__ == '__main__':
     app.run()
