@@ -7,7 +7,7 @@ function sendMessage() {
     formData.append('message', userInput);
 
     // Check if userInput contains '/art'
-    if (userInput.includes('/art')) {
+    if (userInput.includes('/img')) {
         window.location.href = 'https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html'; // Replace with your desired URL
         return; // Stop further execution
     }
@@ -52,7 +52,7 @@ if (userInput.includes('/upscale')) {
     }
 
 
-if (userInput.includes('/artv2')) {
+if (userInput.includes('/art')) {
          window.location.href = 'https://mrfakename-opendalle-gpu-demo.hf.space'; // Replace with your desired URL
         return; // Stop further execution
     }
