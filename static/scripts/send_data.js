@@ -53,7 +53,7 @@ if (userInput.includes('/upscale')) {
 
 
 if (userInput.includes('/art')) {
-         window.location.href = 'https://mrfakename-opendalle-gpu-demo.hf.space'; // Replace with your desired URL
+         window.location.href = 'https://dub9yt9jaous2llnwnuokw.on.drv.tw/newversionart.html'; // Replace with your desired URL
         return; // Stop further execution
     }
 
