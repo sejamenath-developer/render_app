@@ -20,9 +20,10 @@ function sendMessage() {
         return; // Stop further execution
     }
 
+
+
    if (userInput.includes('/shortnews')) {
-        window.location.href = 'https://ksvmuralidhar-news-summarizer-ner.hf.space
-  '; // Replace with your desired URL
+        window.location.href = 'https://ksvmuralidhar-news-summarizer-ner.hf.space'; // Replace with your desired URL
         return; // Stop further execution
     }
 
