@@ -52,6 +52,11 @@ if (userInput.includes('/upscale')) {
     }
 
 
+if (userInput.includes('/artv2')) {
+         window.location.href = 'https://mrfakename-opendalle-gpu-demo.hf.space'; // Replace with your desired URL
+        return; // Stop further execution
+    }
+
 
 
 
