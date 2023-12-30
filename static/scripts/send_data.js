@@ -61,7 +61,7 @@ if (userInput.includes('/upscale')) {
 
 
 if (userInput.includes('/art')) {
-         window.location.href = 'https://dub9yt9jaous2llnwnuokw.on.drv.tw/newversionart.html'; // Replace with your desired URL
+         window.location.href = 'https://ejucpx0ochj5sjq21z5jxq.on.drv.tw/Aiart.html'; // Replace with your desired URL
         return; // Stop further execution
     }
 
