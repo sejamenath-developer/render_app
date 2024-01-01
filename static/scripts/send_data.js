@@ -30,6 +30,13 @@ function sendMessage() {
 
 
 
+if (userInput.includes('/genvideo')) {
+        window.location.href = 'https://radames-real-time-sd-turbo.hf.space'; // Replace with your desired URL
+        return; // Stop further execution
+    }
+
+
+
 if (userInput.startsWith('/fb ')) {
     var username = userInput.substring(4); // Extract the username after '/fb '
     var fbAppURL = 'fb://profile/' + username; // Construct the Facebook app URL
