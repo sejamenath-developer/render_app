@@ -42,6 +42,86 @@
 
 </head>
 <body>
+
+
+
+<div class="sidenav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<style>
+
+
+/* Style the side navigation */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+/* Links inside the sidenav */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* On mouse-over */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Main content */
+.main {
+    transition: margin-left 0.5s;
+    padding: 16px;
+    margin-left: 0;
+}
+
+/* Add a black background color with a little bit see-through */
+.main {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Push the main content to the right when side nav is opened */
+.main-open {
+    margin-left: 250px;
+}
+
+
+
+</style>
+<script>
+
+
+function openNav() {
+    document.getElementsByClassName("sidenav")[0].style.width = "250px";
+    document.getElementsByClassName("main")[0].classList.add("main-open");
+}
+
+function closeNav() {
+    document.getElementsByClassName("sidenav")[0].style.width = "0";
+    document.getElementsByClassName("main")[0].classList.remove("main-open");
+}
+
+
+
+</script>
+
 <br><br>
 
 
