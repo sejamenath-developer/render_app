@@ -10,16 +10,11 @@ body {
 /* Add this style to your existing CSS file or create a new one */
 
 #loadingMessage {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333; /* Adjust the color to your preference */
+    width:50px;
+   /* Adjust the color to your preference */
     text-align: center;
     margin-top: 20px;
-    padding:20px;
-    background-color:transparent;
-    border-radius:30px;
-    box-shadow:0 0 50px #B3B3B3;
-
+    
 }
 .hidden {
     display: none;
