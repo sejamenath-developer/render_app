@@ -5,6 +5,15 @@ body {
     font-family:Tahoma, Verdana, sans-serif;
 }
 
+/* CSS to style the generating message */
+#generatingMessage {
+  font-weight: bold;
+  font-size: 18px;
+  color: blue;
+  /* Add any other styles you want */
+}
+
+
 .btn{
 
 background-color: black; /* Blue color */
