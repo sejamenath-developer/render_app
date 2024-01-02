@@ -15,22 +15,10 @@ body {
     color: #333; /* Adjust the color to your preference */
     text-align: center;
     margin-top: 20px;
-    padding:10px;
-    border-radius:40px;
-background: linear-gradient(to right,transparent 20%, transparent 40%, #A8A8A8 50%, #A8A8A8 55%, transparent 70%, transparent 100%);
-  background-size: 200% auto;
-
-  animation: shine 0.5s linear infinite;
-}
-
-/*Begin shimmer code*/
-
-@keyframes shine {
-    to {
-      background-position: 200% center;
-    }
-  }fff
-
+    padding:20px;
+    background-color:transparent;
+    border-radius:30px;
+    box-shadow:0 0 50px #B3B3B3;
 
 }
 .hidden {
