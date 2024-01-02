@@ -8,9 +8,14 @@ body {
 /* Add this style to your existing CSS file or create a new one */
 
 #loadingMessage {
-font-size: 15px;
-color:Black;
-padding:1px;
+
+
+font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Adjust the color to your preference */
+    text-align: center;
+    margin-top: 20px;
+padding:5px;
 border-radius:40px;
 background: linear-gradient(to right,transparent 20%, transparent 40%, #A8A8A8 50%, #A8A8A8 55%, transparent 70%, transparent 100%);
   background-size: 200% auto;
