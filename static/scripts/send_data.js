@@ -13,6 +13,7 @@ function sendMessage() {
     }
 
 
+$('#textInput').val(''); // This line clears the input box after sending the message
 
 // Check if userInput contains '/art'
     if (userInput.includes('/contact')) {
