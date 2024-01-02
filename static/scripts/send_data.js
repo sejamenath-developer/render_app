@@ -1,3 +1,13 @@
+
+function showLoadingMessage() {
+    $('#loadingMessage').removeClass('hidden');
+}
+
+function hideLoadingMessage() {
+    $('#loadingMessage').addClass('hidden');
+}
+
+
 function sendMessage() {
     var userInput = $('#textInput').val();
     console.log(userInput)
@@ -5,6 +15,15 @@ function sendMessage() {
     var formData = new FormData();
 
     formData.append('message', userInput);
+
+
+
+
+showLoadingMessage(); // Show "Generating..." message
+
+    // Your existing code...
+
+
 
     // Check if userInput contains '/art'
     if (userInput.includes('/img')) {
@@ -109,11 +128,22 @@ if (userInput.includes('/bgremove')) {
         contentType: false,
         processData: false,
         success: function(data) {
+
+
+hideLoadingMessage();
+
+
+
             result.innerHTML = '<h2>DETAILS <h2><h3>' + data.data;
             showSuccessMessage();
             // Handle success
         },
         error: function(error) {
+
+
+hideLoadingMessage(); 
+
+
             console.error('Error:', error);
 
 
