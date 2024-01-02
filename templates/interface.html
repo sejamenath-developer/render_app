@@ -45,82 +45,195 @@
 
 
 
-<div class="sidenav">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-</div>
+
+User
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+<script>src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Slash/Ai</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Sitelogo.png') }}">
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/head.css') }}">
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/body.css') }}">
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/form_style.css') }}">
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/floating_input.css') }}">
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/result.css') }}">
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/icon.css') }}">
+
+    <!-- Link to external JavaScript files -->
+    <script src="{{ url_for('static', filename='scripts/file_attachment.js') }}" defer></script>
+
+
+
+    <script src="{{ url_for('static', filename='scripts/image.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='scripts/send_data.js') }}" defer></script>
+
+
+</head>
+<body>
+
 
 <style>
+        #mySidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        #mySidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        #mySidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        #main {
+            transition: margin-left 0.5s;
+            padding: 16px;
+        }
+    </style>
 
 
-/* Style the side navigation */
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        <a href="#">Link 4</a>
+        <a href="#">Link 5</a>
+    </div>
 
-/* Links inside the sidenav */
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
+    <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰</span>
+    </div>
 
-/* On mouse-over */
-.sidenav a:hover {
-    color: #f1f1f1;
-}
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
 
-/* Main content */
-.main {
-    transition: margin-left 0.5s;
-    padding: 16px;
-    margin-left: 0;
-}
-
-/* Add a black background color with a little bit see-through */
-.main {
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-/* Push the main content to the right when side nav is opened */
-.main-open {
-    margin-left: 250px;
-}
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+        }
+    </script>
 
 
 
-</style>
+
+
+<br><br>
+
+
+
+<center >   <h1>SLASH /AI</h1> </center>   <br>
+
+
+
+
+
+
+ <div class="animation-buttons">
+<br>
+
+
+
+    <div class="form_style">
+        <div class="inside_form">
+            <!-- Image preview container -->
+            <div id="imagePreviewContainer" style="display: none; text-align: center; padding:10px">
+
+
+
+
+
+               <center> <img id="imagePreview" src="https://github.com/sejamenath-developer/render_app/blob/main/static%2Ficons%2Fpaper_clip.png" alt="" class="preimg"></center>
+<br>
+
+          <center>  <div style="display:inline-block;">
+
+
+
+<div id="loadingMessage" class="hidden">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+
+</div>
+
+
+
+    <h1 id="results" class="result"></h1>
+            </div>
+        </div>
+    </div></center>
+<br><br><br><div class="his"></div>
+
+
+
+    <div class="floating-input">
+        <div style="width:100%">
+            <div class="input-container">
+                <label for="fileInput" class="paper-clip-label" onclick="fileUpload()">
+
+
+
+  <img src="{{ url_for('static', filename='icons/paper_clip.png') }}" alt="Paper Clip Icon" class="paper-clip-icon">
+
+
+                </label>
+                <input type="file" id="fileInput" style="display: none" accept=".png, .jpg, .jpeg" onchange="previewImage(this)" name="file">
+
+                <input type="text" placeholder="Enter your prompt here..." id="textInput">
+                <button onclick="sendMessage()"><img src="{{ url_for('static', filename='icons/paper_rocket.png') }}" alt="send_icon" class="paper-rocket-icon"></button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <script>
 
 
-function openNav() {
-    document.getElementsByClassName("sidenav")[0].style.width = "250px";
-    document.getElementsByClassName("main")[0].classList.add("main-open");
-}
 
-function closeNav() {
-    document.getElementsByClassName("sidenav")[0].style.width = "0";
-    document.getElementsByClassName("main")[0].classList.remove("main-open");
-}
 
 
 
 </script>
+
+
+
 
 <br><br>
 
