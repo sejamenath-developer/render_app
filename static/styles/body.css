@@ -10,7 +10,7 @@ body {
 /* Add this style to your existing CSS file or create a new one */
 
 #loadingMessage {
-    width:50px;
+    width:4px;
    /* Adjust the color to your preference */
     text-align: center;
     margin-top: 20px;
