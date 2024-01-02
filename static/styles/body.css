@@ -5,13 +5,20 @@ body {
     font-family:Tahoma, Verdana, sans-serif;
 }
 
-/* CSS to style the generating message */
-#generatingMessage {
-  font-weight: bold;
-  font-size: 18px;
-  color: blue;
-  /* Add any other styles you want */
+/* Add this style to your existing CSS file or create a new one */
+
+#loadingMessage {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Adjust the color to your preference */
+    text-align: center;
+    margin-top: 20px;
 }
+
+.hidden {
+    display: none;
+}
+
 
 
 .btn{
