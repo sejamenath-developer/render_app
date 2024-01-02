@@ -1,46 +1,10 @@
 function sendMessage() {
     var userInput = $('#textInput').val();
-    console.log(userInput);
+    console.log(userInput)
     var result = document.getElementById('results');
-    var generatingMessage = document.getElementById('generatingMessage');
     var formData = new FormData();
 
     formData.append('message', userInput);
-
-    // Display generating message
-    generatingMessage.style.display = 'block';
-
-    // Rest of your code...
-
-    $.ajax({
-        url: '/submit',
-        type: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(data) {
-            // Hide generating message on success and display the result
-            generatingMessage.style.display = 'none';
-            result.innerHTML = '<h2>DETAILS <h2><h3>' + data.data;
-            showSuccessMessage();
-            // Handle success
-        },
-        error: function(error) {
-            console.error('Error:', error);
-            // Handle error
-        }
-    });
-}
-
-
-
-
-
-
-
-
-
-
 
     // Check if userInput contains '/art'
     if (userInput.includes('/img')) {
@@ -137,4 +101,26 @@ if (userInput.includes('/bgremove')) {
 
 
 
-    
+    console.log('2')
+    $.ajax({
+        url: '/submit',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+            result.innerHTML = '<h2>DETAILS <h2><h3>' + data.data;
+            showSuccessMessage();
+            // Handle success
+        },
+        error: function(error) {
+            console.error('Error:', error);
+
+
+
+
+            // Handle error
+        }
+    });
+}
+
