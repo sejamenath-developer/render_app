@@ -21,7 +21,28 @@ function sendMessage() {
 
 showLoadingMessage(); // Show "Generating..." message
 
+simulateTyping(result);
+
     // Your existing code...
+
+
+function simulateTyping(resultElement) {
+    var typingSpeed = 50; // Adjust typing speed in milliseconds
+    var textToType = ''; // Text to simulate typing
+
+    function typeCharacter(index) {
+        if (index <= textToType.length) {
+            resultElement.innerHTML = '<h2>DETAILS <h2><h3>' + textToType.substring(0, index);
+            setTimeout(function () {
+                typeCharacter(index + 1);
+            }, typingSpeed);
+        } else {
+            // Continue with your existing code after typing simulation
+        }
+    }
+
+    typeCharacter(0);
+}
 
 
 
