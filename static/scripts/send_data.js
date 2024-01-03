@@ -7,45 +7,42 @@ function hideLoadingMessage() {
     $('#loadingMessage').addClass('hidden');
 }
 
+
 function sendMessage() {
     var userInput = $('#textInput').val();
-    console.log(userInput);
+    console.log(userInput)
     var result = document.getElementById('results');
     var formData = new FormData();
 
     formData.append('message', userInput);
 
-    showLoadingMessage(); // Show "Generating..." message
-    simulateTyping("I am looking at the image you gave me, please wait for me to reply soon...", result);
-    
-   
 
-    function simulateTyping(textToType, resultElement) {
-        var typingSpeed = 50; // Adjust typing speed in milliseconds
 
-        function typeCharacter(index) {
-            if (index <= textToType.length) {
-                resultElement.innerHTML = '<h2><h2><h3>' + textToType.substring(0, index);
-                setTimeout(function () {
-                    typeCharacter(index + 1);
-                }, typingSpeed);
-            } else {
-                // Continue with your existing code after typing simulation
-                displayResult(); // Call function to display the result after typing
-            }
+
+showLoadingMessage(); // Show "Generating..." message
+
+simulateTyping(result);
+
+    // Your existing code...
+
+
+function simulateTyping(result) {
+    var typingSpeed = 50; // Adjust typing speed in milliseconds
+
+
+    function typeCharacter(index) {
+        if (index <= results.length) {
+            results.innerHTML = '<h2><h2><h3>' + results.substring(0, index);
+            setTimeout(function () {
+                typeCharacter(index + 1);
+            }, typingSpeed);
+        } else {
+            // Continue with your existing code after typing simulation
         }
-
-        typeCharacter(0);
     }
 
-    function displayResult() {
-        var resultText = 'Your result goes here'; // Replace this with the actual result text
-
-        // Simulate typing for the result
-        simulateTyping(resultText, result);
-    }
+    typeCharacter(0);
 }
-
 
 
     // Check if userInput contains '/art'
