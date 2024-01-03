@@ -1,3 +1,4 @@
+
 function showLoadingMessage() {
     $('#loadingMessage').removeClass('hidden');
 }
@@ -20,62 +21,9 @@ function sendMessage() {
 
 showLoadingMessage(); // Show "Generating..." message
 
-simulateTyping(result);
-
     // Your existing code...
 
 
-function simulateTyping(result) {
-    var typingSpeed = 50; // Adjust typing speed in milliseconds
-
-
-    function typeCharacter(index) {
-        if (index <= results.length) {
-            results.innerHTML = '<h2><h2><h3>' + results.substring(0, index);
-            setTimeout(function () {
-                typeCharacter(index + 1);
-            }, typingSpeed);
-        } else {
-            // Continue with your existing code after typing simulation
-        }
-    }
-
-    typeCharacter(0);
-}
-
-    console.log('2')
-    $.ajax({
-        url: '/submit',
-        type: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(data) {
-
-
-hideLoadingMessage();
-
-
-
-            result.innerHTML = '<h2>DETAILS <h2><h3>' + data.data;
-            showSuccessMessage();
-            // Handle success
-        },
-        error: function(error) {
-
-
-hideLoadingMessage(); 
-
-
-            console.error('Error:', error);
-
-
-
-
-            // Handle error
-        }
-    });
-}
 
     // Check if userInput contains '/art'
     if (userInput.includes('/img')) {
@@ -172,4 +120,36 @@ if (userInput.includes('/bgremove')) {
 
 
 
-    
+    console.log('2')
+    $.ajax({
+        url: '/submit',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+
+
+hideLoadingMessage();
+
+
+
+            result.innerHTML = '📎' + data.data;
+            showSuccessMessage();
+            // Handle success
+        },
+        error: function(error) {
+
+
+hideLoadingMessage(); 
+
+
+            console.error('Error:', error);
+
+
+
+
+            // Handle error
+        }
+    });
+}
