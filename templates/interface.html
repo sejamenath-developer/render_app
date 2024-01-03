@@ -166,7 +166,26 @@
                 </label>
                 <input type="file" id="fileInput" style="display: none" accept=".png, .jpg, .jpeg" onchange="previewImage(this)" name="file">
 
-                <input type="text" placeholder="Enter your prompt here..." id="textInput">
+               
+
+
+
+  <label for="textInput"></label>
+<input type="textInput" id="textInput" name="textInput" list="textInputs">
+
+<datalist id="textInputs">
+    <option value="/art">
+    <option value="/chat">
+    <option value="/bgremove">
+    <option value="/fb">
+    <option value="/upscale">
+    <!-- Add more options as needed -->
+</datalist>
+
+
+
+
+
                 <button onclick="sendMessage()"><img src="{{ url_for('static', filename='icons/paper_rocket.png') }}" alt="send_icon" class="paper-rocket-icon"></button>
             </div>
         </div>
