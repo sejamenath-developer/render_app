@@ -134,7 +134,7 @@ hideLoadingMessage();
 
 
 
-            result.innerHTML = '<h2>⚫ RESALT</h2><br>' + data.data;
+            result.innerHTML = '<h2>DETAILS</h2><br>' + data.data;
             showSuccessMessage();
             // Handle success
         },
