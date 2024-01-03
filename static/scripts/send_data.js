@@ -15,41 +15,45 @@ function sendMessage() {
     formData.append('message', userInput);
 
     showLoadingMessage(); // Show "Generating..." message
-
     simulateTyping(result);
-    
-    // Use formData or send it to the server using fetch or XMLHttpRequest
-    // Example:
-    // fetch('your_endpoint_here', {
-    //     method: 'POST',
-    //     body: formData
-    // })
-    // .then(response => {
-    //     // Handle response
-    // })
-    // .catch(error => {
-    //     // Handle error
-    // });
-}
 
-function simulateTyping(result) {
-    var typingSpeed = 50; // Adjust typing speed in milliseconds
-    var textToType = result.innerText; // Get the text to type
+    function simulateTyping(results) {
+        var typingSpeed = 50; // Adjust typing speed in milliseconds
 
-    function typeCharacter(index) {
-        if (index <= textToType.length) {
-            result.innerHTML = '<h2><h2><h3>' + textToType.substring(0, index);
-            setTimeout(function () {
-                typeCharacter(index + 1);
-            }, typingSpeed);
-        } else {
-            // Continue with your existing code after typing simulation
+        function typeCharacter(index) {
+            if (index <= userInput.length) {
+                result.innerHTML = '<h2><h2><h3>' + userInput.substring(0, index);
+                setTimeout(function () {
+                    typeCharacter(index + 1);
+                }, typingSpeed);
+            } else {
+                // Continue with your existing code after typing simulation
+                console.log('2');
+                $.ajax({
+                    url: '/submit',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        hideLoadingMessage();
+                        result.innerHTML = '<h2>DETAILS <h2><h3>' + data.data;
+                        showSuccessMessage();
+                        // Handle success
+                    },
+                    error: function (error) {
+                        hideLoadingMessage();
+                        console.error('Error:', error);
+                        // Handle error
+                    }
+                });
+            }
         }
-    }
 
-    typeCharacter(0);
+        typeCharacter(0);
+    }
 }
- 
+
 
 
     // Check if userInput contains '/art'
@@ -147,37 +151,4 @@ if (userInput.includes('/bgremove')) {
 
 
 
-    console.log('2')
-    $.ajax({
-        url: '/submit',
-        type: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(data) {
-
-
-hideLoadingMessage();
-
-
-
-            result.innerHTML = '<h2>DETAILS <h2><h3>' + data.data;
-            showSuccessMessage();
-            // Handle success
-        },
-        error: function(error) {
-
-
-hideLoadingMessage(); 
-
-
-            console.error('Error:', error);
-
-
-
-
-            // Handle error
-        }
-    });
-}
-
+    
