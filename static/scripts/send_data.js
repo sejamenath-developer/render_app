@@ -28,7 +28,7 @@ simulateTyping(result);
 
 function simulateTyping(resultElement) {
     var typingSpeed = 50; // Adjust typing speed in milliseconds
-    var textToType = ''; // Text to simulate typing
+    var textToType = 'Your resalt gegenerating, wait a moment...'; // Text to simulate typing
 
     function typeCharacter(index) {
         if (index <= textToType.length) {
