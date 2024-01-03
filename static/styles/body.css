@@ -111,3 +111,26 @@ text-decoration:none;
 
 .his{
 padding:30px;}
+
+
+
+.preimg{
+width:100%; border-radius: 30px; border: 3px
+solid transparent;
+transition: all 1s ease;
+background: linear-gradient(to right,
+transparent 20%, transparent 40%, transparent 50%,
+transparent 55%, transparent 70%, transparent 100%);
+background-size: 200% auto;
+
+ animation: shine 5s linear infinite;
+}
+/*Begin shimmer code*/
+@keyframes shine {
+to {
+
+
+}
+background-position: 200% center;
+}
+}fff
