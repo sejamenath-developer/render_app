@@ -6,55 +6,76 @@ function hideLoadingMessage() {
     $('#loadingMessage').addClass('hidden');
 }
 
+
 function sendMessage() {
     var userInput = $('#textInput').val();
-    console.log(userInput);
+    console.log(userInput)
     var result = document.getElementById('results');
     var formData = new FormData();
 
     formData.append('message', userInput);
 
-    showLoadingMessage(); // Show "Generating..." message
-    simulateTyping(result);
 
-    function simulateTyping(results) {
-        var typingSpeed = 50; // Adjust typing speed in milliseconds
 
-        function typeCharacter(index) {
-            if (index <= userInput.length) {
-                result.innerHTML = '<h2><h2><h3>' + userInput.substring(0, index);
-                setTimeout(function () {
-                    typeCharacter(index + 1);
-                }, typingSpeed);
-            } else {
-                // Continue with your existing code after typing simulation
-                console.log('2');
-                $.ajax({
-                    url: '/submit',
-                    type: 'POST',
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function (data) {
-                        hideLoadingMessage();
-                        result.innerHTML = '<h2>DETAILS <h2><h3>' + data.data;
-                        showSuccessMessage();
-                        // Handle success
-                    },
-                    error: function (error) {
-                        hideLoadingMessage();
-                        console.error('Error:', error);
-                        // Handle error
-                    }
-                });
-            }
+
+showLoadingMessage(); // Show "Generating..." message
+
+simulateTyping(result);
+
+    // Your existing code...
+
+
+function simulateTyping(result) {
+    var typingSpeed = 50; // Adjust typing speed in milliseconds
+
+
+    function typeCharacter(index) {
+        if (index <= results.length) {
+            results.innerHTML = '<h2><h2><h3>' + results.substring(0, index);
+            setTimeout(function () {
+                typeCharacter(index + 1);
+            }, typingSpeed);
+        } else {
+            // Continue with your existing code after typing simulation
         }
-
-        typeCharacter(0);
     }
+
+    typeCharacter(0);
 }
 
+    console.log('2')
+    $.ajax({
+        url: '/submit',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(data) {
 
+
+hideLoadingMessage();
+
+
+
+            result.innerHTML = '<h2>DETAILS <h2><h3>' + data.data;
+            showSuccessMessage();
+            // Handle success
+        },
+        error: function(error) {
+
+
+hideLoadingMessage(); 
+
+
+            console.error('Error:', error);
+
+
+
+
+            // Handle error
+        }
+    });
+}
 
     // Check if userInput contains '/art'
     if (userInput.includes('/img')) {
