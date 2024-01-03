@@ -1,4 +1,3 @@
-
 function showLoadingMessage() {
     $('#loadingMessage').removeClass('hidden');
 }
@@ -7,32 +6,39 @@ function hideLoadingMessage() {
     $('#loadingMessage').addClass('hidden');
 }
 
-
 function sendMessage() {
     var userInput = $('#textInput').val();
-    console.log(userInput)
+    console.log(userInput);
     var result = document.getElementById('results');
     var formData = new FormData();
 
     formData.append('message', userInput);
 
+    showLoadingMessage(); // Show "Generating..." message
 
-
-
-showLoadingMessage(); // Show "Generating..." message
-
-simulateTyping(result);
-
-    // Your existing code...
-
+    simulateTyping(result);
+    
+    // Use formData or send it to the server using fetch or XMLHttpRequest
+    // Example:
+    // fetch('your_endpoint_here', {
+    //     method: 'POST',
+    //     body: formData
+    // })
+    // .then(response => {
+    //     // Handle response
+    // })
+    // .catch(error => {
+    //     // Handle error
+    // });
+}
 
 function simulateTyping(result) {
     var typingSpeed = 50; // Adjust typing speed in milliseconds
-
+    var textToType = result.innerText; // Get the text to type
 
     function typeCharacter(index) {
-        if (index <= results.length) {
-            results.innerHTML = '<h2><h2><h3>' + results.substring(0, index);
+        if (index <= textToType.length) {
+            result.innerHTML = '<h2><h2><h3>' + textToType.substring(0, index);
             setTimeout(function () {
                 typeCharacter(index + 1);
             }, typingSpeed);
@@ -43,6 +49,7 @@ function simulateTyping(result) {
 
     typeCharacter(0);
 }
+ 
 
 
     // Check if userInput contains '/art'
