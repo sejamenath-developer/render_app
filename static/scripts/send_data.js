@@ -120,36 +120,38 @@ if (userInput.includes('/bgremove')) {
 
 
 
-    console.log('2')
-    $.ajax({
-        url: '/submit',
-        type: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(data) {
+    console.log('2');
+$.ajax({
+    url: '/submit',
+    type: 'POST',
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(response) {
+        hideLoadingMessage();
 
+        // Assuming 'data' contains the response from the AJAX request
+        let responseData = response.data; // Replace 'data' with your actual response data
 
-hideLoadingMessage();
-
-
-
-            result.innerHTML = '📎' + data.data;
-            showSuccessMessage();
-            // Handle success
-        },
-        error: function(error) {
-
-
-hideLoadingMessage(); 
-
-
-            console.error('Error:', error);
-
-
-
-
-            // Handle error
+        // Function to simulate typing effect
+        function typeWriterEffect(text, index = 0) {
+            if (index < text.length) {
+                result.innerHTML = '<h2>RESALT</h2><br>' + text.substring(0, index + 1); // Show characters one by one
+                index++;
+                setTimeout(() => {
+                    typeWriterEffect(text, index);
+                }, 100); // Adjust the speed of typing by changing the timeout duration (milliseconds)
+            } else {
+                showSuccessMessage(); // Display success message after typing animation completes
+            }
         }
-    });
-}
+
+        // Start the typing animation with the retrieved data
+        typeWriterEffect(responseData);
+    },
+    error: function(error) {
+        hideLoadingMessage();
+        console.error('Error:', error);
+        // Handle error
+    }
+});
