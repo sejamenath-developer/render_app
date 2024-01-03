@@ -28,11 +28,11 @@ simulateTyping(result);
 
 function simulateTyping(resultElement) {
     var typingSpeed = 50; // Adjust typing speed in milliseconds
-    var textToType = 'Your resalt gegenerating, wait a moment...'; // Text to simulate typing
+    var textToType = 'I am looking at the image you gave me, please wait for me to reply soon...'; // Text to simulate typing
 
     function typeCharacter(index) {
         if (index <= textToType.length) {
-            resultElement.innerHTML = '<h2>DETAILS <h2><h3>' + textToType.substring(0, index);
+            resultElement.innerHTML = '<h2><h2><h3>' + textToType.substring(0, index);
             setTimeout(function () {
                 typeCharacter(index + 1);
             }, typingSpeed);
