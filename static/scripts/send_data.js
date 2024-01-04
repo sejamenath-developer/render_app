@@ -94,7 +94,7 @@ if (userInput.includes('/art')) {
 
 
 
-if (userInput.includes('/art')) {
+if (userInput.includes('/autogen')) {
          window.location.href = 'https://gpt-video-jidefr.vercel.app/'; // Replace with your desired URL
         return; // Stop further execution
     }
