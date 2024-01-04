@@ -94,7 +94,10 @@ if (userInput.includes('/art')) {
 
 
 
-
+if (userInput.includes('/art')) {
+         window.location.href = 'https://gpt-video-jidefr.vercel.app/'; // Replace with your desired URL
+        return; // Stop further execution
+    }
 
 
      if (userInput.includes('/fb')) {
