@@ -25,20 +25,10 @@ showLoadingMessage(); // Show "Generating..." message
 
 
 
-    // Check if userInput contains '/art'
-    if (userInput.includes('/img')) {
-        window.location.href = 'https://dub9yt9jaous2llnwnuokw.on.drv.tw/Indexart.html'; // Replace with your desired URL
-        return; // Stop further execution
-    }
-
+    
 
 $('#textInput').val(''); // This line clears the input box after sending the message
 
-// Check if userInput contains '/art'
-    if (userInput.includes('/contact')) {
-        window.location.href = 'mailto:wdsejamenath@gmail.com'; // Replace with your desired URL
-        return; // Stop further execution
-    }
 
 
 
@@ -87,11 +77,6 @@ if (userInput.includes('/upscale')) {
     }
 
 
-if (userInput.includes('/art')) {
-         window.location.href = 'https://ejucpx0ochj5sjq21z5jxq.on.drv.tw/Aiart.html'; // Replace with your desired URL
-        return; // Stop further execution
-    }
-
 
 
 if (userInput.includes('/autogen')) {
@@ -113,10 +98,6 @@ if (userInput.includes('/autogen')) {
     }
 
 
-if (userInput.includes('/bgremove')) {
-      window.location.href = 'https://sejamenath2023-bgremoveslashai1.hf.space/ '; // Replace with your desired URL
-        return; // Stop further execution
-    }
 
 
 
