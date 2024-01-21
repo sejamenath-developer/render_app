@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, jsonify
 from pathlib import Path
 import google.generativeai as genai
-import mimetypes  # Import the mimetypes module
+import mimetypes
+from googletrans import Translator
 
 file_path = ''
 
@@ -40,6 +41,8 @@ safety_settings = [
 model = genai.GenerativeModel(model_name="gemini-pro-vision",
                               generation_config=generation_config,
                               safety_settings=safety_settings)
+
+translator = Translator()
 
 @app.route('/')
 def index():
@@ -89,8 +92,11 @@ def submit():
 
     response = model.generate_content(prompt_parts)
 
-    print(response.text)
-    return jsonify(data=response.text)
+    # Translate the response to Sinhala
+    sinhala_translation = translator.translate(response.text, dest='si').text
+
+    print(sinhala_translation)
+    return jsonify(data=sinhala_translation)
 
 if __name__ == '__main__':
-    app.run() 
+    app.run()
