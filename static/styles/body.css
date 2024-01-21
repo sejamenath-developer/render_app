@@ -137,6 +137,10 @@ background-position: 200% center;
 
 
 
-.hedd{
+.h{
 margin-top:5px;
-color:Gray;}
+padding:10px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+
+}
