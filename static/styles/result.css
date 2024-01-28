@@ -1,15 +1,15 @@
 .result {
     font-size:14px;
     padding: 10px;
-    color:white;
+    color:black;
     margin-left:3px;
     margin-top:15px;
     margin-right:3px;
-    margin-bottom:15px;
+    margin-bottom:35px;
     padding:5px;
-    background-color:black;
+    background-color:white;
     border-radius:25px;
     tetext-align:left;
-}
-  
+    box-shadow:0 0 20px #ABABAB ;
+} 
 
