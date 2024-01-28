@@ -118,7 +118,7 @@ hideLoadingMessage();
 
 
 
-            result.innerHTML = '<h2>PIXCELGEN.AI</h2><br>' + data.data;
+            result.innerHTML = '<h2></h2><br>' + data.data;
             showSuccessMessage();
             // Handle success
         },
