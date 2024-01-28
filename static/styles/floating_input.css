@@ -31,11 +31,14 @@
 }
 .paper-rocket-icon{
     margin-top: 2px;
-    margin-right:10px;
+    margin-right:3px;
     width: 20px; 
     height: 20px; 
-}
+    background-color:white;
+    border-radius:500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
 
+}
 .floating-input input {
     flex: 1;
     padding: 12px;
