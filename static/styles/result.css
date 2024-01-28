@@ -1,10 +1,14 @@
 .result {
     font-size:14px;
     padding: 10px;
-    color:black;
+    color:white;
     margin-left:3px;
     margin-top:15px;
     text-align:left;
+    padding:5px;
+    background-color:black;
+    border-radius:25px;
+    tetext-align:center;
 }
   
 
